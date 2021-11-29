@@ -6,6 +6,13 @@ body{
     display: flex;
     top: 0px;
     width: 100%;
+    align-items: center;
+    flex-direction: column;
     position: sticky;
-    background-color: white;
+    background-color: green;
+    height: 100px;
+}
+
+.text{
+    color: white;
 }
