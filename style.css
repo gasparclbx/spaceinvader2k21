@@ -1,0 +1,11 @@
+body{
+    background-color: black;
+}
+
+.container{
+    display: flex;
+    top: 0px;
+    width: 100%;
+    position: sticky;
+    background-color: white;
+}
