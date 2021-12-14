@@ -1,0 +1,11 @@
+.container{
+    border: 1px solid black;
+    height: 900px;
+    position: relative;
+}
+.image{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
