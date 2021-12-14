@@ -6,23 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceInvader 2k21</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="vaisseau.js"></script>
 </head>
 <body>
     <div class="navbar">
         <h1 class="text">SpaceInvader 1978</h1>
     </div>
-    <div class="ecranjeu">
-        <div class="player">
-            <img src="..\images\Space_Invaders_cannon.png" alt="canon">
-            <img class="invader" src="images/invader_1.png" alt="">
-            <img class="invader" src="images/invader_2.png" alt="">
-            <img class="invader" src="images/invader_3.png" alt="">
-        </div>
-    </div>
-    <div class="vie">
-        <img src="..\images\Space_Invaders_cannon.png" alt="canon">
-        <img src="..\images\Space_Invaders_cannon.png" alt="canon">
-        <img src="..\images\Space_Invaders_cannon.png" alt="canon">
-    </div>
+    <script type="text/javascript">
+     // Création des entités 
+        var invader1 = new Sprite("../images/invader_1.png", 100, 100, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 400, 90, 70);
+        var invader3 = new Sprite("../images/invader_3.png", 700, 90, 70);
+        var missile = new Sprite("../images/missile.png");
+        missile.height = "50";
+        missile.display = "none";
+        var vaisseau = new Sprite("vaisseau.png", 650, 600, 50);
+        // Création des événements sur la reconnaissance des touches
+        document.onkeydown = function(event) {
+            if (event.keyCode == 37) { // Aller a gauche
+                vaisseau.left -= 20;
+            }
+            else if (event.keyCode == 39) { // Aller a droite
+                vaisseau.left += 20;
+            }
+            else if (event.keyCode == 32) { // Apparition du missile
+                missile.display = "block";
+            }
+            if (vaisseau.left < 0) 
+                vaisseau.left = 0;
+            if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
+                 vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
+        };
+    </script>
 </body>
 </html>
