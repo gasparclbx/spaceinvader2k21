@@ -53,7 +53,7 @@
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
         vaisseau.left = document.body.clientWidth/2 - 30;
-        vaisseau.top = "600";
+        vaisseau.top = "850";
         vaisseau.height = "50";
         // Création des événements sur la reconnaissance des touches
         document.onkeydown = function (event) {
@@ -85,7 +85,7 @@
             }
             for(i=1; i<=27; i++) {
                 var invader = window["invader" + i];
-                if(invader.display == "none") continue;
+                if (invader.display == "none") continue;
                 if (missile.checkCollision(invader)){
                     missile.stopAnimation();
                     missile.display ="none";
@@ -100,7 +100,14 @@
             if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 40)
             }
+            if (missile.checkCollision(invadership)){
+                missile.stopAnimation();
+                missile.display ="none";
+                invadership.stopAnimation();
+                invadership.display ="none";
+            }
         }
+
 // Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
