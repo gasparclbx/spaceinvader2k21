@@ -16,7 +16,7 @@
     </div>
     <script type="text/javascript">
         // Création des entités 
-        var invadership = new Sprite("../images/invader_3.png", 0, 90, 100);      //vaisseau bonus
+        var invadership = new Sprite("../images/invader_3.png", -100, 90, 100);      //vaisseau bonus
 
         var invader1 = new Sprite("../images/invader_1.png", 500, 200, 70);
         var invader2 = new Sprite("../images/invader_1.png", 600, 200, 70);
@@ -80,14 +80,21 @@
                 missile.display = "none";
             }
         }
-        function moveshipbonus(invadership) {
-            invadership.left = invadership.left + 10;
-            if (invadership.left > document.body.clientWidth - invadership.ship.width) {
-                invadership.stopAnimation();
-                invadership.display = "none";
+
+        function moveshipbonusleft(invadership){
+            invadership.left = invadership.left - 10;
+            if (invadership.left<-1200){
+                invadership.startAnimation(moveshipbonusright, 40)
             }
         }
-        invadership.startAnimation(moveshipbonus, 22)
+
+        function moveshipbonusright(invadership) {
+            invadership.left = invadership.left + 10;
+            if (invadership.left > document.body.clientWidth + 1200) {
+                invadership.startAnimation( moveshipbonusleft, 40 ); 
+            }
+        }
+        invadership.startAnimation(moveshipbonusright, 22)
 
         function moveinvaderleft(invader) {
             invader.left = invader.left - 3;
