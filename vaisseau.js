@@ -1,5 +1,5 @@
 // Création d'une fonction créant nos entités
-function Sprite(filename, left, top, height) {
+function Sprite(filename, left, top, height, position) {
     this.ship = document.createElement("img");
     this.ship.src = filename;
     this.ship.style.position = "absolute";
@@ -42,7 +42,6 @@ function Sprite(filename, left, top, height) {
             this._height = value;
             this.ship.style.height = value + "px";
         }
-
     });
     this.height = height 
     this.left = left;
