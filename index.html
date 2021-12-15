@@ -81,9 +81,9 @@
             }
         }
 
-        function moveshipbonusleft(invadership){
+        function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
-            if (invadership.left<-1200){
+            if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 40)
             }
         }
@@ -91,33 +91,33 @@
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation( moveshipbonusleft, 40 ); 
+                invadership.startAnimation(moveshipbonusleft, 40);
             }
         }
         invadership.startAnimation(moveshipbonusright, 22)
 
         function moveinvaderleft(invader) {
             invader.left = invader.left - 3;
-            if (invader.left <=0) {
+            if (invader1.left <= 0) {
                 invader.top = invader.top + 70;
-                invader.startAnimation( moveinvaderright, 40 );
+                invader.startAnimation(moveinvaderright, 40);
             }
         }
-        
+
         function moveinvaderright(invader) {
             invader.left = invader.left + 3;
-            if (invader.left > document.body.clientWidth - invader.ship.width) {
+            if (invader9.left > document.body.clientWidth - invader.ship.width) {
                 invader.top = invader.top + 70;
-                invader.startAnimation( moveinvaderleft, 40 );
+                invader.startAnimation(moveinvaderleft, 40);
             }
-            
+
         }
 
         // animation des aliens
-        for (var i=1; i<=27; i++){
-            window["invader"+i].startAnimation( moveinvaderright, 40 );
+        for (var i = 1; i <= 27; i++) {
+            window["invader" + i].startAnimation(moveinvaderright, 40);
         }
-        
+
     </script>
 </body>
 
