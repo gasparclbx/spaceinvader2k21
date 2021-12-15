@@ -32,7 +32,7 @@
             else if (event.keyCode == 32) { // Apparition du missile
                 missile.display = "block";
             }
-            if (vaisseau.left < 0) 
+            if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour pas sortir de l'écran
                 vaisseau.left = 0;
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
                  vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
