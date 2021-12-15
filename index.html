@@ -20,7 +20,10 @@
         var missile = new Sprite("../images/missile.png");
         missile.height = "50";
         missile.display = "none";
-        var vaisseau = new Sprite("vaisseau.png", 650, 600, 50);
+        var vaisseau = new Sprite("vaisseau.png");
+        vaisseau.height = 50;
+        vaisseau.left = document.body.clientWidth/2;
+        vaisseau.ship.style.bottom = "0";
         // Création des événements sur la reconnaissance des touches
         document.onkeydown = function(event) {
             if (event.keyCode == 37) { // Aller a gauche
@@ -31,6 +34,8 @@
             }
             else if (event.keyCode == 32) { // Apparition du missile
                 missile.display = "block";
+                missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
+                missile.ship.style.bottom = "30px";
             }
             if (vaisseau.left < 0) 
                 vaisseau.left = 0;
