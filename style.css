@@ -10,7 +10,7 @@
 }
 body {
     background-color: black;
-    display: flex;
+    overflow: hidden;
 }
 .text{
     color: white;

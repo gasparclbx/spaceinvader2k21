@@ -66,8 +66,8 @@
             else if (event.keyCode == 32) { // Apparition du missile
                 missile.display = "block";
                 missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
-                missile.startAnimation ( movemissile, 20);
                 missile.ship.style.bottom = "30px";
+                missile.startAnimation ( movemissile, 20);
             }
             if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour pas sortir de l'écran
                 vaisseau.left = 0;
