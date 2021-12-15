@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,21 +9,51 @@
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="vaisseau.js"></script>
 </head>
+
 <body>
     <div class="navbar">
         <h1 class="text">SpaceInvader 1978</h1>
     </div>
     <script type="text/javascript">
-     // Création des entités 
-        var invader1 = new Sprite("../images/invader_1.png", 100, 100, 70);
-        var invader2 = new Sprite("../images/invader_2.png", 400, 90, 70);
-        var invader3 = new Sprite("../images/invader_3.png", 700, 90, 70);
-        var missile = new Sprite("../images/missile.png");
+        // Création des entités 
+        var invader3 = new Sprite("../images/invader_3.png", 0, 90, 100);      //vaisseau bonus
+
+        var invader1 = new Sprite("../images/invader_1.png", 500, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 600, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 700, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 800, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 900, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1000, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1100, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1200, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1300, 200, 70);
+
+        var invader2 = new Sprite("../images/invader_2.png", 500, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 600, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 700, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 800, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 900, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 1000, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 1100, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 1200, 270, 70);
+        var invader2 = new Sprite("../images/invader_2.png", 1300, 270, 70);
+
+        var invader1 = new Sprite("../images/invader_1.png", 500, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 600, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 700, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 800, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 900, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1000, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1100, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1200, 340, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 1300, 340, 70);
+
+        var missile = new Sprite("../images/missile.png", 650, 550);
         missile.height = "50";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png", 650, 600, 50);
         // Création des événements sur la reconnaissance des touches
-        document.onkeydown = function(event) {
+        document.onkeydown = function (event) {
             if (event.keyCode == 37) { // Aller a gauche
                 vaisseau.left -= 20;
             }
@@ -31,12 +62,19 @@
             }
             else if (event.keyCode == 32) { // Apparition du missile
                 missile.display = "block";
+                missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
+                missile.top = vaisseau.top
+                missile.startAnimation ( movemissile, 20);
             }
             if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour pas sortir de l'écran
                 vaisseau.left = 0;
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
-                 vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
+                vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
+        function movemissile( missile ){
+            missile.top = missile.top -10;
+        }
     </script>
 </body>
+
 </html>

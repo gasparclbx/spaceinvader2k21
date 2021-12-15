@@ -10,6 +10,7 @@
 }
 body {
     background-color: black;
+    display: flex;
 }
 .text{
     color: white;
@@ -32,8 +33,6 @@ body {
 
 .vie img{
     height: 35px;
-
-
 }
 
 #missile {
@@ -44,4 +43,28 @@ body {
 canvas {
     margin: 30px;
     background-color: black;
+}
+
+.bonus{
+    display: flex;
+    justify-content: flex-end;
+    animation: 7s bonus1 linear infinite;
+}
+
+@keyframes bonus1 {
+
+    from{
+        display: none;
+    }
+    25%{
+        display: block;
+        transform: translateX(-100px);
+    }
+    50%{
+        transform: translateX(-100px);
+
+    }
+    to{
+        transform: translateX(-600px);
+    }
 }

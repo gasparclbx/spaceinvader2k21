@@ -48,3 +48,12 @@ function Sprite(filename, left, top, height) {
     this.left = left;
     this.top = top;
 }
+
+//mise en place d'une clock pour faire les animation
+Sprite.prototype.startAnimation = function (fct, interval){
+    if (this._clock) window.clearInterval(this._clock);
+    var _this = this;
+    this._clock = window.setInterval( function()  {
+        fct( _this);
+    }, interval );
+}
