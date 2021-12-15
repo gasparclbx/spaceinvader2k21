@@ -1,5 +1,5 @@
 // Création d'une fonction créant nos entités
-function Sprite(filename, left, top, height, position) {
+function Sprite(filename, left, top, height) {
     this.ship = document.createElement("img");
     this.ship.src = filename;
     this.ship.style.position = "absolute";
@@ -24,6 +24,7 @@ function Sprite(filename, left, top, height, position) {
             this.ship.style.top = value + "px";
         }
     });
+
 // Ajout d'un argument pour l'apparition
     Object.defineProperty(this, "display", {
         get: function() {
@@ -55,4 +56,7 @@ Sprite.prototype.startAnimation = function (fct, interval){
     this._clock = window.setInterval( function()  {
         fct( _this);
     }, interval );
-}
+};
+Sprite.prototype.stopAnimation = function() {
+    window.clearInterval(this._clock);
+};
