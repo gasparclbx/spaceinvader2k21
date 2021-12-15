@@ -48,7 +48,7 @@ function Sprite(filename, left, top, height, position) {
     this.top = top;
 }
 
-//mise en place d'une clock pour faire les animation
+//mise en place d'une clock pour faire les animations
 Sprite.prototype.startAnimation = function (fct, interval){
     if (this._clock) window.clearInterval(this._clock);
     var _this = this;
