@@ -82,11 +82,14 @@
                 missile.stopAnimation();
                 missile.display = "none";
             }
-            for (var i = 1; i<=15; i++){
+            for (var i = 1; i<=27; i++){
                 var invader = window["invader"+i];
+                if(invader.display == "none")continue;
                 if(missile.checkCollision(invader)){
                     missile.stopAnimation();
+                    missile.display ="none";
                     invader.stopAnimation();
+                    invader.display ="none";
                 }
             }
         }
