@@ -35,3 +35,13 @@ body {
 
 
 }
+
+#missile {
+    width: 4px;
+    height: 12px;
+    background-color: red;
+}
+canvas {
+    margin: 30px;
+    background-color: black;
+}

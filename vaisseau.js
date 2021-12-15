@@ -33,7 +33,7 @@ function Sprite(filename, left, top, height) {
             this.ship.style.display = value;
         }
     });
-// Ajout d'un argument pour la 
+// Ajout d'un argument pour la taille
     Object.defineProperty(this, "height", {
         get: function() {
             return this._height;
