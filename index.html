@@ -53,7 +53,7 @@
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
         vaisseau.left = document.body.clientWidth/2 - 30;
-        vaisseau.top = "850";
+        vaisseau.top = "600";
         vaisseau.height = "50";
         // Création des événements sur la reconnaissance des touches
         document.onkeydown = function (event) {
@@ -76,21 +76,32 @@
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
             vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
+// Déplacement du tir du vaisseau
         function moveMissile( missile ){
             missile.top -= 10;
             if (missile.top < 0 ) {
                 missile.stopAnimation();
                 missile.display = "none";
             }
+            for(i=1; i<=27; i++) {
+                var invader = window["invader" + i];
+                if(invader.display == "none") continue;
+                if (missile.checkCollision(invader)){
+                    missile.stopAnimation();
+                    missile.display ="none";
+                    invader.stopAnimation();
+                    invader.display ="none";
+                };
+            };
         }
-
+// Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 40)
             }
         }
-
+// Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
@@ -98,7 +109,7 @@
             }
         }
         invadership.startAnimation(moveshipbonusright, 22)
-
+// Déplacement vers la gauche
         function moveinvaderleft(invader) {
             invader.left = invader.left - 3;
             if (invader1.left <= 0) {
@@ -106,7 +117,7 @@
                 invader.startAnimation(moveinvaderright, 40);
             }
         }
-
+// Déplacement vers là droite
         function moveinvaderright(invader) {
             invader.left = invader.left + 3;
             if (invader9.left > document.body.clientWidth - invader.ship.width) {
