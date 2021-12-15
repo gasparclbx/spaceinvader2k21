@@ -57,6 +57,7 @@ Sprite.prototype.startAnimation = function (fct, interval){
         fct( _this);
     }, interval );
 };
+
 Sprite.prototype.stopAnimation = function() {
-    window.clearInterval(this._clock);
+    window.clearInterval (this._clock);
 };
