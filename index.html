@@ -15,12 +15,14 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
+    <p class="gameover" style="display: none;">Game Over !</p>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
         song.src = "son/music.ogg";
         song.volume = 0.4;
-        song.play();
+        song.pause();
+        song.loop = true;
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
         shoot.volume = 0.5;
@@ -34,13 +36,8 @@
         var life1 = new Sprite("images/heart.png", 20, 25, 40);
         var life2 = new Sprite("images/heart.png", 70, 25, 40);
         var life3 = new Sprite("images/heart.png", 120, 25, 40);
-<<<<<<< HEAD
         // Création des entités 
-        var invadership = new Sprite("../images/invader_3.png", -100, 90, 50);      //vaisseau bonus
-=======
-        // Création des entitées
-        var invadership = new Sprite("images/invader_3.png", -100, 90, 70);      //vaisseau bonus
->>>>>>> a76e71fd2666fc4021a7fdf5a1c5f2db93ec22e2
+        var invadership = new Sprite("../images/invader_3.png", -100, 90, 40);      //vaisseau bonus
 
         var invader1 = new Sprite("images/invader_1.png", 500, 200, 50);
         var invader2 = new Sprite("images/invader_1.png", 600, 200, 50);
@@ -218,7 +215,7 @@
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
-                invadership.startAnimation(moveshipbonusright, 40)
+                invadership.startAnimation(moveshipbonusright, 60)
             }
             if (missile.checkCollision(invadership)){
                 missile.stopAnimation();
@@ -234,10 +231,10 @@
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation(moveshipbonusleft, 40);
+                invadership.startAnimation(moveshipbonusleft, 60);
             }
         }
-        invadership.startAnimation(moveshipbonusright, 22)
+        invadership.startAnimation(moveshipbonusright, 60)
         
 
 
@@ -252,6 +249,13 @@
                     verif = false;
                 }
             }
+            if (invader.checkCollision(vaisseau)){
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                }
+             }
         }
 // Déplacement invader vers là droite
         function moveinvaderright(invader) {
@@ -264,13 +268,18 @@
                     verif = false;
                 }
             }
-
+            if (invader.checkCollision(vaisseau)){
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                }
+            }
         }
         // animation des aliens
         for (var i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
         }
-
     </script>
 </body>
 
