@@ -7,14 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceInvader 2k21</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="vaisseau.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 
 <body>
     <div class="navbar">
-        <h1 class="text">SpaceInvader 1978</h1>
+        <h1 class="text">Space Invader 1978</h1>
+        <p class="score">Score:</p>
     </div>
     <script type="text/javascript">
+        // Création des fichiers audio
+        var song = document.createElement("audio");
+        song.src = "son/music.ogg";
+        song.volume = 0.4;
+        song.play();
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
         shoot.volume = 0.5;
@@ -24,7 +30,11 @@
         var explosion = document.createElement("audio");
         explosion.src = "son/explosion.wav";
         explosion.volume = 0.6;
-        // Création des entités 
+        // Création des fichiers fixes
+        var life1 = new Sprite("images/heart.png", 20, 25, 40);
+        var life2 = new Sprite("images/heart.png", 70, 25, 40);
+        var life3 = new Sprite("images/heart.png", 120, 25, 40);
+        // Création des entitées
         var invadership = new Sprite("images/invader_3.png", -100, 90, 100);      //vaisseau bonus
 
         var invader1 = new Sprite("images/invader_1.png", 500, 200, 70);
@@ -142,12 +152,12 @@
         var mur79 = new Sprite("images/mur.png", 1638, 721, 21);
         var mur80 = new Sprite("images/mur.png", 1659, 721, 21);
 
-        var missile = new Sprite("images/missile.png", 650, 550);
-        missile.height = "50";
+        var missile = new Sprite("../images/missile.png", 650, 550);
+        missile.height = "20";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
         vaisseau.left = document.body.clientWidth/2 - 30;
-        vaisseau.top = "850";
+        vaisseau.top = window.innerHeight-100; //taille du body -100";
         vaisseau.height = "50";
         // Création des événements sur la reconnaissance des touches
         document.onkeydown = function launch(event) {
@@ -217,31 +227,29 @@
 
 // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
-            var test = true;
+            var verif = true;
             invader.left = invader.left - 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left <= 0 && test) {
+                if (window["invader"+i].left <= 0 && verif) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderright, 20);
-                    test = false;
-
+                    verif = false;
                 }
             }
         }
 // Déplacement invader vers là droite
         function moveinvaderright(invader) {
-            var test = true;
+            var verif = true;
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && test) {
+                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderleft, 20);
-                    test = false;
+                    verif = false;
                 }
             }
 
         }
-
         // animation des aliens
         for (var i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
