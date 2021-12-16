@@ -67,39 +67,27 @@
         var invader26 = new Sprite("images/invader_1.png", 1200, 340, 50);
         var invader27 = new Sprite("images/invader_1.png", 1300, 340, 50);
 
-        var space = window.innerWidth/9 //fonction pour les murs
-        var line = 0
+        var space = window.innerWidth/9; //fonction pour les murs
+        var line = 0;
+        i = 1;
         while(line < 2){
-            var nb_space = 0
+            var nb_space = 0;
             while(nb_space < 9){
                 if(nb_space % 2 == 0){
-                    nb_space = nb_space + 1
+                    nb_space = nb_space + 1;
                 }
                 else{
-                    var x=0
+                    var x = 0;
                     while(x <= space){
-                        var mur = new Sprite("images/mur.png", space*nb_space + x, 700 + line*21, 22)
-                        x = x + 21
+                        var wall = new Sprite("images/mur.png", space*nb_space + x, 700 + line*21, 22);
+                        window["new_wall" + i] = wall;  //pour que chaque mur ait une variable avec un nom unique
+                        x = x + 21;
+                        i = i + 1;
                     }
-                    nb_space = nb_space + 1
+                    nb_space = nb_space + 1;
                 }
             }
-            line = line + 1
-        }
-        
-        nb_space = 0
-        while(nb_space < 9){
-            if(nb_space % 2 == 0){
-                nb_space = nb_space + 1
-            }
-            else{
-                var x=0
-                while(x <= space){
-                    var mur = new Sprite("images/mur.png", space*nb_space + x, 700, 22)
-                    x = x + 21
-                }
-                nb_space = nb_space + 1
-            }
+            line = line + 1;
         }
 
         var missile = new Sprite("../images/missile.png", 650, 550);
