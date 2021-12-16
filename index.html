@@ -196,15 +196,15 @@
             }
             for(i=1; i<=27; i++) {
                 var invader = window["invader" + i];
-                if (invader.display == "none") continue;
+                if (invader.display == "none")continue; 
                 if (missile.checkCollision(invader)){
                     kill.play();
                     missile.stopAnimation();
                     missile.display ="none";
                     invader.stopAnimation();
-                    invader.display ="none";
                     score += 100;
                     document.querySelector('.score').innerText ="Score: "+score;
+                    invader.display ="none";
                 };
             };
         }
@@ -247,6 +247,7 @@
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
+            // déplacement des invader
             for ( i = 1; i<=27; i++){
                 if (window["invader"+i].left <= 0 && verif) {
                     invader.top = invader.top + 30;
@@ -257,6 +258,9 @@
             if (invader.checkCollision(vaisseau)){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
+                    window["invader"+i].display = 'none';
+                    invadership.stopAnimation();
+                    invadership.ddisplay = 'none';
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     nbvie = 0;
@@ -282,6 +286,9 @@
             if (invader.checkCollision(vaisseau)){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
+                    window["invader"+i].display = 'none';
+                    invadership.stopAnimation();
+                    inavdership.display = 'none';
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     nbvie = 0;
