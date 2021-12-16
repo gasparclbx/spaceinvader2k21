@@ -20,7 +20,7 @@
         var song = document.createElement("audio");
         song.src = "son/music.ogg";
         song.volume = 0.4;
-        song.pause();
+        song.play();
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
         shoot.volume = 0.5;
@@ -34,8 +34,8 @@
         var life1 = new Sprite("images/heart.png", 20, 25, 40);
         var life2 = new Sprite("images/heart.png", 70, 25, 40);
         var life3 = new Sprite("images/heart.png", 120, 25, 40);
-        // Création des entités 
-        var invadership = new Sprite("../images/invader_3.png", -100, 90, 100);      //vaisseau bonus
+        // Création des entitées
+        var invadership = new Sprite("images/invader_3.png", -100, 90, 70);      //vaisseau bonus
 
         var invader1 = new Sprite("images/invader_1.png", 500, 200, 50);
         var invader2 = new Sprite("images/invader_1.png", 600, 200, 50);
@@ -45,17 +45,17 @@
         var invader6 = new Sprite("images/invader_1.png", 1000, 200, 50);
         var invader7 = new Sprite("images/invader_1.png", 1100, 200, 50);
         var invader8 = new Sprite("images/invader_1.png", 1200, 200, 50);
-        var invader9 = new Sprite("images/invader_1.png", 1300, 200,50);
+        var invader9 = new Sprite("images/invader_1.png", 1300, 200, 50);
 
-        var invader10 = new Sprite("images/invader_2.png", 500, 270, 33);
-        var invader11 = new Sprite("images/invader_2.png", 600, 270, 33);
-        var invader12 = new Sprite("images/invader_2.png", 700, 270, 33);
-        var invader13 = new Sprite("images/invader_2.png", 800, 270, 33);
-        var invader14 = new Sprite("images/invader_2.png", 900, 270, 33);
-        var invader15 = new Sprite("images/invader_2.png", 1000, 270, 33);
-        var invader16 = new Sprite("images/invader_2.png", 1100, 270, 33);
-        var invader17 = new Sprite("images/invader_2.png", 1200, 270, 33);
-        var invader18 = new Sprite("images/invader_2.png", 1300, 270, 33);
+        var invader10 = new Sprite("images/invader_2.png", 500, 270, 40);
+        var invader11 = new Sprite("images/invader_2.png", 600, 270, 40);
+        var invader12 = new Sprite("images/invader_2.png", 700, 270, 40);
+        var invader13 = new Sprite("images/invader_2.png", 800, 270, 40);
+        var invader14 = new Sprite("images/invader_2.png", 900, 270, 40);
+        var invader15 = new Sprite("images/invader_2.png", 1000, 270, 40);
+        var invader16 = new Sprite("images/invader_2.png", 1100, 270, 40);
+        var invader17 = new Sprite("images/invader_2.png", 1200, 270, 40);
+        var invader18 = new Sprite("images/invader_2.png", 1300, 270, 40);
 
         var invader19 = new Sprite("images/invader_1.png", 500, 340, 50);
         var invader20 = new Sprite("images/invader_1.png", 600, 340, 50);
@@ -66,6 +66,87 @@
         var invader25 = new Sprite("images/invader_1.png", 1100, 340, 50);
         var invader26 = new Sprite("images/invader_1.png", 1200, 340, 50);
         var invader27 = new Sprite("images/invader_1.png", 1300, 340, 50);
+
+        var mur1 = new Sprite("images/mur.png", 213, 700, 23);
+        var mur2 = new Sprite("images/mur.png", 234, 700, 23);
+        var mur3 = new Sprite("images/mur.png", 255, 700, 23);
+        var mur4 = new Sprite("images/mur.png", 276, 700, 23);
+        var mur5 = new Sprite("images/mur.png", 297, 700, 23);
+        var mur6 = new Sprite("images/mur.png", 318, 700, 23);
+        var mur7 = new Sprite("images/mur.png", 339, 700, 23);
+        var mur8 = new Sprite("images/mur.png", 360, 700, 23);
+        var mur9 = new Sprite("images/mur.png", 381, 700, 23);
+        var mur10 = new Sprite("images/mur.png", 402, 700, 23);
+        var mur11 = new Sprite("images/mur.png", 213, 721, 23);
+        var mur12 = new Sprite("images/mur.png", 234, 721, 23);
+        var mur13 = new Sprite("images/mur.png", 255, 721, 23);
+        var mur14 = new Sprite("images/mur.png", 276, 721, 23);
+        var mur15 = new Sprite("images/mur.png", 297, 721, 23);
+        var mur16 = new Sprite("images/mur.png", 318, 721, 23);
+        var mur17 = new Sprite("images/mur.png", 339, 721, 23);
+        var mur18 = new Sprite("images/mur.png", 360, 721, 23);
+        var mur19 = new Sprite("images/mur.png", 381, 721, 23);
+        var mur20 = new Sprite("images/mur.png", 402, 721, 23);
+        var mur21 = new Sprite("images/mur.png", 636, 700, 23);
+        var mur22 = new Sprite("images/mur.png", 657, 700, 23);
+        var mur23 = new Sprite("images/mur.png", 678, 700, 23);
+        var mur24 = new Sprite("images/mur.png", 699, 700, 23);
+        var mur25 = new Sprite("images/mur.png", 720, 700, 23);
+        var mur26 = new Sprite("images/mur.png", 741, 700, 23);
+        var mur27 = new Sprite("images/mur.png", 762, 700, 23);
+        var mur28 = new Sprite("images/mur.png", 783, 700, 23);
+        var mur29 = new Sprite("images/mur.png", 804, 700, 23);
+        var mur30 = new Sprite("images/mur.png", 825, 700, 23);
+        var mur31 = new Sprite("images/mur.png", 636, 721, 23);
+        var mur32 = new Sprite("images/mur.png", 657, 721, 23);
+        var mur33 = new Sprite("images/mur.png", 678, 721, 23);
+        var mur34 = new Sprite("images/mur.png", 699, 721, 23);
+        var mur35 = new Sprite("images/mur.png", 720, 721, 23);
+        var mur36 = new Sprite("images/mur.png", 741, 721, 23);
+        var mur37 = new Sprite("images/mur.png", 762, 721, 23);
+        var mur38 = new Sprite("images/mur.png", 783, 721, 23);
+        var mur39 = new Sprite("images/mur.png", 804, 721, 23);
+        var mur40 = new Sprite("images/mur.png", 825, 721, 23);
+        var mur41 = new Sprite("images/mur.png", 1068, 700, 23);
+        var mur42 = new Sprite("images/mur.png", 1089, 700, 23);
+        var mur43 = new Sprite("images/mur.png", 1110, 700, 23);
+        var mur44 = new Sprite("images/mur.png", 1131, 700, 23);
+        var mur45 = new Sprite("images/mur.png", 1152, 700, 23);
+        var mur46 = new Sprite("images/mur.png", 1173, 700, 23);
+        var mur74 = new Sprite("images/mur.png", 1194, 700, 23);
+        var mur48 = new Sprite("images/mur.png", 1215, 700, 23);
+        var mur49 = new Sprite("images/mur.png", 1236, 700, 23);
+        var mur50 = new Sprite("images/mur.png", 1257, 700, 23);
+        var mur51 = new Sprite("images/mur.png", 1068, 721, 23);
+        var mur52 = new Sprite("images/mur.png", 1089, 721, 23);
+        var mur53 = new Sprite("images/mur.png", 1110, 721, 23);
+        var mur54 = new Sprite("images/mur.png", 1131, 721, 23);
+        var mur55 = new Sprite("images/mur.png", 1152, 721, 23);
+        var mur56 = new Sprite("images/mur.png", 1173, 721, 23);
+        var mur54 = new Sprite("images/mur.png", 1194, 721, 23);
+        var mur58 = new Sprite("images/mur.png", 1215, 721, 23);
+        var mur59 = new Sprite("images/mur.png", 1236, 721, 23);
+        var mur60 = new Sprite("images/mur.png", 1257, 721, 23);
+        var mur61 = new Sprite("images/mur.png", 1470, 700, 23);
+        var mur62 = new Sprite("images/mur.png", 1491, 700, 23);
+        var mur63 = new Sprite("images/mur.png", 1512, 700, 23);
+        var mur64 = new Sprite("images/mur.png", 1533, 700, 23);
+        var mur65 = new Sprite("images/mur.png", 1554, 700, 23);
+        var mur66 = new Sprite("images/mur.png", 1575, 700, 23);
+        var mur67 = new Sprite("images/mur.png", 1596, 700, 23);
+        var mur68 = new Sprite("images/mur.png", 1617, 700, 23);
+        var mur69 = new Sprite("images/mur.png", 1638, 700, 23);
+        var mur70 = new Sprite("images/mur.png", 1659, 700, 23);
+        var mur71 = new Sprite("images/mur.png", 1470, 721, 23);
+        var mur72 = new Sprite("images/mur.png", 1491, 721, 23);
+        var mur73 = new Sprite("images/mur.png", 1512, 721, 23);
+        var mur74 = new Sprite("images/mur.png", 1533, 721, 23);
+        var mur75 = new Sprite("images/mur.png", 1554, 721, 23);
+        var mur76 = new Sprite("images/mur.png", 1575, 721, 23);
+        var mur77 = new Sprite("images/mur.png", 1596, 721, 23);
+        var mur78 = new Sprite("images/mur.png", 1617, 721, 23);
+        var mur79 = new Sprite("images/mur.png", 1638, 721, 23);
+        var mur80 = new Sprite("images/mur.png", 1659, 721, 23);
 
         var missile = new Sprite("../images/missile.png", 650, 550);
         missile.height = "20";
@@ -154,7 +235,7 @@
             invader.left = invader.left - 3;
             for ( i = 1; i<=27; i++){
                 if (window["invader"+i].left <= 0 && verif) {
-                    invader.top = invader.top + 70;
+                    invader.top = invader.top + 50;
                     invader.startAnimation(moveinvaderright, 20);
                     verif = false;
                 }
@@ -166,7 +247,7 @@
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
                 if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
-                    invader.top = invader.top + 70;
+                    invader.top = invader.top + 50;
                     invader.startAnimation(moveinvaderleft, 20);
                     verif = false;
                 }
