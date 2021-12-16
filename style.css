@@ -35,6 +35,7 @@ body {
     height: 35px;
 }
 
+<<<<<<< Updated upstream
 #missile {
     width: 4px;
     height: 12px;
@@ -45,3 +46,11 @@ canvas {
     background-color: black;
 }
 
+=======
+.perdu{
+    color: #73F340;
+    margin: 350px 700px;
+    font-size: 100px;
+    display: none;
+}
+>>>>>>> Stashed changes

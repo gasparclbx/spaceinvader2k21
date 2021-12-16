@@ -14,6 +14,9 @@
     <div class="navbar">
         <h1 class="text">SpaceInvader 1978</h1>
     </div>
+    <div class="perdu">
+        <p>Game Over</p>
+    </div>
     <script type="text/javascript">
         // Création des entités 
         var invadership = new Sprite("../images/invader_3.png", -100, 90, 100);      //vaisseau bonus
@@ -124,12 +127,30 @@
             var test = true;
             invader.left = invader.left - 3;
             for ( i = 1; i<=27; i++){
+<<<<<<< Updated upstream
                 if (window["invader"+i].left <= 0 && test) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderright, 20);
                     test = false;
 
+=======
+                if (window["invader"+i].left <= 0 && verif) {
+                    invader.top = invader.top + 50;
+                    invader.startAnimation(moveinvaderright, 5);
+                    verif = false;
+>>>>>>> Stashed changes
                 }
+            }
+            if (invader.checkCollision(vaisseau)){
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    nbvie = 0
+                }
+            }
+            if (nbvie==0){
+                life1.display = "none";
+                life2.display = "none";
+                life3.display = "none";
             }
         }
 // Déplacement invader vers là droite
@@ -137,18 +158,44 @@
             var test = true;
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
+<<<<<<< Updated upstream
                 if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && test) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderleft, 20);
                     test = false;
+=======
+                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
+                    invader.top = invader.top + 50;
+                    invader.startAnimation(moveinvaderleft, 5);
+                    verif = false;
+>>>>>>> Stashed changes
                 }
+            }
+            if (invader.checkCollision(vaisseau)){
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    nbvie = 0
+                }
+            }
+            if (nbvie==0){
+                life1.display = "none";
+                life2.display = "none";
+                life3.display = "none";
             }
 
         }
+<<<<<<< Updated upstream
 
+=======
+        function gameover(nbvie){
+            if (event.keyCode == 31){
+                document.getElementsByClassName(perdu).style.visibility = "block";
+            }
+        }
+>>>>>>> Stashed changes
         // animation des aliens
         for (var i = 1; i <= 27; i++) {
-            window["invader" + i].startAnimation(moveinvaderright, 20);
+            window["invader" + i].startAnimation(moveinvaderright, 5);
         }
 
     </script>
