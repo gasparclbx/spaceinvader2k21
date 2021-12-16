@@ -16,12 +16,13 @@
         <p class="score">Score: 0</p>
     </div>
     <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" id="restart">restart</a></div>
+    <div class="win" style="display: none;"><p>Congrats !</p><a href="index.html" id="restart">restart</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
         song.src = "son/music.ogg";
         song.volume = 0.4;
-        song.pause();
+        song.play();
         song.loop = true;
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
@@ -32,6 +33,10 @@
         var explosion = document.createElement("audio");
         explosion.src = "son/explosion.wav";
         explosion.volume = 0.6;
+        var win = document.createElement("audio");
+        win.src = "son/win.wav";
+        var defeat = document.createElement("audio");
+        defeat.src = "son/defeat.wav";
         // Création des fichiers fixes
         var life1 = new Sprite("images/heart.png", 20, 25, 40);
         var life2 = new Sprite("images/heart.png", 70, 25, 40);
@@ -69,7 +74,7 @@
         var invader26 = new Sprite("images/invader_1.png", 1200, 340, 50);
         var invader27 = new Sprite("images/invader_1.png", 1300, 340, 50);
 
-        
+        var point = 0;
 
         var mur1 = new Sprite("images/mur.png", window.innerHeight-650, window.innerHeight-200, 21);
         var mur2 = new Sprite("images/mur.png", window.innerHeight-629, window.innerHeight-200, 21);
@@ -210,12 +215,23 @@
                     document.querySelector('.score').innerText ="Score: "+score;
                 };
             };
+                if (score == 3200 && point == 1){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }else if (score == 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
 // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
-                invadership.startAnimation(moveshipbonusright, 60)
+                invadership.startAnimation(moveshipbonusright, 50)
             }
             if (missile.checkCollision(invadership)){
                 missile.stopAnimation();
@@ -223,21 +239,50 @@
                 invadership.stopAnimation();
                 invadership.display ="none";
                 score += 500;
+                point += 1;
                 document.querySelector('.score').innerText ="Score: "+score;
             }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }else if (score == 2700 && point == 0){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }    
         }
 
 // Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation(moveshipbonusleft, 60);
+                invadership.startAnimation(moveshipbonusleft, 50);
             }
+            if (missile.checkCollision(invadership)){
+                missile.stopAnimation();
+                missile.display ="none";
+                invadership.stopAnimation();
+                invadership.display ="none";
+                score += 500;
+                point += 1;
+                document.querySelector('.score').innerText ="Score: "+score;
+            }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+                }else if (score >= 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
-        invadership.startAnimation(moveshipbonusright, 60)
-        
-
-
+        invadership.startAnimation(moveshipbonusright, 50)
 // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
@@ -254,25 +299,30 @@
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                 }
             
-            }else if (invader.top > window.innerHeight-100)
+            }else if (invader.top > window.innerHeight-100){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                 }
+            }    
         }
 // Déplacement invader vers là droite
         function moveinvaderright(invader) {
             var verif = true;
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
+                if (window["invader"+i].left >= document.body.clientWidth - invader.ship.width && verif) {
                     invader.top = invader.top + 50;
                     invader.startAnimation(moveinvaderleft, 20);
                     verif = false;
@@ -283,17 +333,22 @@
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                 }
-            }else if (invader.top > window.innerHeight-100)
+            }else if (invader.top > window.innerHeight-100){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                 }
+            }
         }
         // animation des aliens
         for (i = 1; i <= 27; i++) {
