@@ -1,11 +1,16 @@
 
+@font-face {
+    font-family: Font;
+    src: url("font.TTF");
+}
 .navbar{
     display: flex;
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(19, 19, 19);
     width: 100%;
     justify-content: center;
-    border-radius: 10px;
+    border: 2px #73F340 solid;
     margin: 0 0 20px 0;
+    font-family: Font;
 
 }
 body {
@@ -13,9 +18,16 @@ body {
     overflow: hidden;
 }
 .text{
-    color: white;
+    color: #73F340;
 }
-
+.score {
+    font-size: 30px;
+    color: white;
+    opacity: 0.7;
+    align-items: center;
+    margin: 0;
+    padding: 20px 10px 10px 100px;
+}
 /* affichage du jeu */
 
 
@@ -34,14 +46,3 @@ body {
 .vie img{
     height: 35px;
 }
-
-#missile {
-    width: 4px;
-    height: 12px;
-    background-color: red;
-}
-canvas {
-    margin: 30px;
-    background-color: black;
-}
-
