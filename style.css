@@ -1,10 +1,16 @@
 
+@font-face {
+    font-family: Font;
+    src: url("font.TTF");
+}
 .navbar{
     display: flex;
     background-color: rgb(19, 19, 19);
     width: 100%;
     justify-content: center;
+    border: 2px #73F340 solid;
     margin: 0 0 20px 0;
+    font-family: Font;
 
 }
 body {
@@ -12,9 +18,16 @@ body {
     overflow: hidden;
 }
 .text{
-    color: white;
+    color: #73F340;
 }
-
+.score {
+    color: white;
+    opacity: 0.7;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 10px 10px 100px;
+    margin: 0;
+}
 /* affichage du jeu */
 
 

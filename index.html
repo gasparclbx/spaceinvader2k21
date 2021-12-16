@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceInvader 2k21</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="vaisseau.js"></script>
 </head>
 
 <body>
     <div class="navbar">
         <h1 class="text">Space Invader 1978</h1>
-        <p class="score">Score:</p>
+        <p class="score">Score: 0</p>
     </div>
     <script type="text/javascript">
         // Création des fichiers audio
@@ -74,6 +74,11 @@
         vaisseau.left = document.body.clientWidth/2 - 30;
         vaisseau.top = window.innerHeight-100; //taille du body -100";
         vaisseau.height = "50";
+        // Création du score
+        var score = 0;
+        score.top = 20;
+        score.left = 300;
+        score.height = 30;
         // Création des événements sur la reconnaissance des touches
         document.onkeydown = function launch(event) {
             if (event.keyCode == 37) { // Aller a gauche
@@ -112,6 +117,8 @@
                     missile.display ="none";
                     invader.stopAnimation();
                     invader.display ="none";
+                    score += 100;
+                    document.querySelector('.score').innerText ="Score: "+score;
                 };
             };
         }
@@ -126,6 +133,7 @@
                 missile.display ="none";
                 invadership.stopAnimation();
                 invadership.display ="none";
+                score += 500;
             }
         }
 
