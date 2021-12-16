@@ -61,6 +61,8 @@ Sprite.prototype.startAnimation = function (fct, interval){
 Sprite.prototype.stopAnimation = function() {
     window.clearInterval (this._clock);
 };
+
+
 // Vérification si il y a collision ou non
 Sprite.prototype.checkCollision = function(other) {
     return  !  ((this.top + this.ship.height < other.top) ||
