@@ -62,14 +62,6 @@ Sprite.prototype.stopAnimation = function() {
     window.clearInterval (this._clock);
 };
 
-<<<<<<< HEAD
-Sprite.prototype.checkCollision = function(other) {
-    return ! ( (this.top + this._ship.height < other.top) ||
-                this.top > (other.top + other._ship.height) ||
-                (this.left + this._ship.width < other.left) ||
-                this.left > (other.left + other._ship.width) );
-}
-=======
 
 // Vérification si il y a collision ou non
 Sprite.prototype.checkCollision = function(other) {
@@ -78,4 +70,3 @@ Sprite.prototype.checkCollision = function(other) {
                 (this.left + this.ship.width < other.left ) ||
                 this.left > (other.left + other.ship.width) );
 }
->>>>>>> 820f7feec9c7141d871ab9bc964cfb5745016dea

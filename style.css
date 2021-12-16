@@ -34,14 +34,3 @@ body {
 .vie img{
     height: 35px;
 }
-
-#missile {
-    width: 4px;
-    height: 12px;
-    background-color: red;
-}
-canvas {
-    margin: 30px;
-    background-color: black;
-}
-
