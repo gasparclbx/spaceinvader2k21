@@ -2,7 +2,7 @@
 function Sprite(filename, left, top, height) {
     this.ship = document.createElement("img");
     this.ship.src = filename;
-    this.ship.style.position = "fixed";
+    this.ship.style.position = "absolute";
     document.body.appendChild(this.ship);
 // Ajout d'un argument pour la position sur la verticale
     Object.defineProperty(this, "left", {
