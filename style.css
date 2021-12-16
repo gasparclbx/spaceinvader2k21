@@ -14,7 +14,7 @@
 
 }
 body {
-    background-color: black;
+    background-color: rgb(24, 24, 24);
     overflow: hidden;
 }
 .text{
@@ -45,4 +45,17 @@ body {
 
 .vie img{
     height: 35px;
+}
+.gameover {
+    position: fixed;
+    text-align: center;
+    top: 30%;
+    left: 35%;
+    height: 200px;
+    width: 350px;
+    padding: 50px;
+    color: white;
+    font-family: Font;
+    font-size: 60px;
+    background: black;
 }
