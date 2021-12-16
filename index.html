@@ -67,17 +67,36 @@
         var invader26 = new Sprite("images/invader_1.png", 1200, 340, 50);
         var invader27 = new Sprite("images/invader_1.png", 1300, 340, 50);
 
-        var space = window.innerWidth/9
+        var space = window.innerWidth/9 //fonction pour les murs
+        var line = 0
+        while(line < 2){
+            var nb_space = 0
+            while(nb_space < 9){
+                if(nb_space % 2 == 0){
+                    nb_space = nb_space + 1
+                }
+                else{
+                    var x=0
+                    while(x <= space){
+                        var mur = new Sprite("images/mur.png", space*nb_space + x, 700 + line*21, 22)
+                        x = x + 21
+                    }
+                    nb_space = nb_space + 1
+                }
+            }
+            line = line + 1
+        }
+        
         nb_space = 0
         while(nb_space < 9){
             if(nb_space % 2 == 0){
                 nb_space = nb_space + 1
             }
             else{
-                c=0
-                while(c <= space){
-                    var mur = new Sprite("images/mur.png", space*nb_space + c, 700, 22)
-                    c = c + 21
+                var x=0
+                while(x <= space){
+                    var mur = new Sprite("images/mur.png", space*nb_space + x, 700, 22)
+                    x = x + 21
                 }
                 nb_space = nb_space + 1
             }
