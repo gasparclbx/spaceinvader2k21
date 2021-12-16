@@ -40,35 +40,35 @@
         // Création des entités 
         var invadership = new Sprite("../images/invader_3.png", -100, 90, 40);      //vaisseau bonus
 
-        var invader1 = new Sprite("images/invader_1.png", 400, 200, 40);
-        var invader2 = new Sprite("images/invader_1.png", 550, 200, 40);
-        var invader3 = new Sprite("images/invader_1.png", 700, 200, 40);
-        var invader4 = new Sprite("images/invader_1.png", 850, 200, 40);
-        var invader5 = new Sprite("images/invader_1.png", 1000, 200, 40);
-        var invader6 = new Sprite("images/invader_1.png", 1150, 200, 40);
-        var invader7 = new Sprite("images/invader_1.png", 1300, 200, 40);
-        var invader8 = new Sprite("images/invader_1.png", 1450, 200, 40);
-        var invader9 = new Sprite("images/invader_1.png", 1600, 200, 40);
+        var invader1 = new Sprite("images/invader_1.png", 400, 200, 45);
+        var invader2 = new Sprite("images/invader_1.png", 500, 200, 45);
+        var invader3 = new Sprite("images/invader_1.png", 600, 200, 45);
+        var invader4 = new Sprite("images/invader_1.png", 700, 200, 45);
+        var invader5 = new Sprite("images/invader_1.png", 800, 200, 45);
+        var invader6 = new Sprite("images/invader_1.png", 900, 200, 45);
+        var invader7 = new Sprite("images/invader_1.png", 1000, 200, 45);
+        var invader8 = new Sprite("images/invader_1.png", 1100, 200, 45);
+        var invader9 = new Sprite("images/invader_1.png", 1200, 200, 45);
 
-        var invader10 = new Sprite("images/invader_2.png", 400, 270, 30);
-        var invader11 = new Sprite("images/invader_2.png", 550, 270, 30);
-        var invader12 = new Sprite("images/invader_2.png", 700, 270, 30);
-        var invader13 = new Sprite("images/invader_2.png", 850, 270, 30);
-        var invader14 = new Sprite("images/invader_2.png", 1000, 270, 30);
-        var invader15 = new Sprite("images/invader_2.png", 1150, 270, 30);
-        var invader16 = new Sprite("images/invader_2.png", 1300, 270, 30);
-        var invader17 = new Sprite("images/invader_2.png", 1450, 270, 30);
-        var invader18 = new Sprite("images/invader_2.png", 1600, 270, 30);
+        var invader10 = new Sprite("images/invader_2.png", 400, 270, 35);
+        var invader11 = new Sprite("images/invader_2.png", 500, 270, 35);
+        var invader12 = new Sprite("images/invader_2.png", 600, 270, 35);
+        var invader13 = new Sprite("images/invader_2.png", 700, 270, 35);
+        var invader14 = new Sprite("images/invader_2.png", 800, 270, 35);
+        var invader15 = new Sprite("images/invader_2.png", 900, 270, 35);
+        var invader16 = new Sprite("images/invader_2.png", 1000, 270, 35);
+        var invader17 = new Sprite("images/invader_2.png", 1100, 270, 35);
+        var invader18 = new Sprite("images/invader_2.png", 1200, 270, 35);
 
-        var invader19 = new Sprite("images/invader_1.png", 400, 340, 40);
-        var invader20 = new Sprite("images/invader_1.png", 550, 340, 40);
-        var invader21 = new Sprite("images/invader_1.png", 700, 340, 40);
-        var invader22 = new Sprite("images/invader_1.png", 850, 340, 40);
-        var invader23 = new Sprite("images/invader_1.png", 1000, 340, 40);
-        var invader24 = new Sprite("images/invader_1.png", 1150, 340, 40);
-        var invader25 = new Sprite("images/invader_1.png", 1300, 340, 40);
-        var invader26 = new Sprite("images/invader_1.png", 1450, 340, 40);
-        var invader27 = new Sprite("images/invader_1.png", 1600, 340, 40);
+        var invader19 = new Sprite("images/invader_1.png", 400, 340, 45);
+        var invader20 = new Sprite("images/invader_1.png", 500, 340, 45);
+        var invader21 = new Sprite("images/invader_1.png", 600, 340, 45);
+        var invader22 = new Sprite("images/invader_1.png", 700, 340, 45);
+        var invader23 = new Sprite("images/invader_1.png", 800, 340, 45);
+        var invader24 = new Sprite("images/invader_1.png", 900, 340, 45);
+        var invader25 = new Sprite("images/invader_1.png", 1000, 340, 45);
+        var invader26 = new Sprite("images/invader_1.png", 1100, 340, 45);
+        var invader27 = new Sprite("images/invader_1.png", 1200, 340, 45);
 
         
 
@@ -154,7 +154,7 @@
         var mur79 = new Sprite("images/mur.png",  window.innerWidth -132, window.innerHeight-179, 21);
 
         var missile = new Sprite("../images/missile.png", 650, 550);
-        missile.height = "20";
+        missile.height = "15";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
         vaisseau.left = document.body.clientWidth/2 - 30;
@@ -191,7 +191,6 @@
         function moveMissile( missile ){
             missile.top -= 10;
             if (missile.top <= 0 ) {
-                missile.stopAnimation();
                 missile.display = "none";
             }
             for(i=1; i<=27; i++) {
@@ -262,16 +261,16 @@
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    nbvie = 0;
                 }
             
-            }else if (invader.top > window.innerHeight-100)
+            }else if (invader.top > window.innerHeight-100){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
-                    nbvie = 0;
                 }
             }
             if (nbvie == 0){
@@ -298,15 +297,15 @@
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    nbvie = 0;
                 }
-            }else if (invader.top > window.innerHeight-100)
+            }else if (invader.top > window.innerHeight-100){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
                     window["invader"+i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
-                    nbvie = 0;
                 }
             }
             if (nbvie == 0){
