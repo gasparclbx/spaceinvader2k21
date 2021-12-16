@@ -64,9 +64,8 @@ Sprite.prototype.stopAnimation = function() {
 
 
 // Vérification si il y a collision ou non
-Sprite.prototype.checkCollision = function( other ) {
-
-    return ! ((this.top + this.ship.height < other.top) ||
+Sprite.prototype.checkCollision = function(other) {
+    return  !  ((this.top + this.ship.height < other.top) ||
                 this.top > (other.top + other.ship.height) ||
                 (this.left + this.ship.width < other.left ) ||
                 this.left > (other.left + other.ship.width) );

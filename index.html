@@ -15,6 +15,15 @@
         <h1 class="text">SpaceInvader 1978</h1>
     </div>
     <script type="text/javascript">
+        var shoot = document.createElement("audio");
+        shoot.src = "son/shoot.wav";
+        shoot.volume = 0.5;
+        var kill = document.createElement("audio");
+        kill.src = "son/invaderkilled.wav";
+        kill.volume = 0.2;
+        var explosion = document.createElement("audio");
+        explosion.src = "son/explosion.wav";
+        explosion.volume = 0.6;
         // Création des entités 
         var invadership = new Sprite("../images/invader_3.png", -100, 90, 100);      //vaisseau bonus
 
@@ -56,7 +65,7 @@
         vaisseau.top = "850";
         vaisseau.height = "50";
         // Création des événements sur la reconnaissance des touches
-        document.onkeydown = function (event) {
+        document.onkeydown = function launch(event) {
             if (event.keyCode == 37) { // Aller a gauche
                 vaisseau.left -= 20;
             }
@@ -65,6 +74,7 @@
             }
             else if (event.keyCode == 32) { // Apparition du missile
                 if (missile.display == "none") {
+                    shoot.play();
                     missile.display = "block";
                     missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
                     missile.startAnimation ( moveMissile, 15);
@@ -87,6 +97,7 @@
                 var invader = window["invader" + i];
                 if (invader.display == "none") continue;
                 if (missile.checkCollision(invader)){
+                    kill.play();
                     missile.stopAnimation();
                     missile.display ="none";
                     invader.stopAnimation();
