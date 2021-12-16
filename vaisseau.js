@@ -1,8 +1,8 @@
 // Création d'une fonction créant nos entités
-function Sprite(filename, left, top, height, position) {
+function Sprite(filename, left, top, height) {
     this.ship = document.createElement("img");
     this.ship.src = filename;
-    this.ship.style.position = "absolute";
+    this.ship.style.position = "fixed";
     document.body.appendChild(this.ship);
 // Ajout d'un argument pour la position sur la verticale
     Object.defineProperty(this, "left", {
@@ -24,6 +24,7 @@ function Sprite(filename, left, top, height, position) {
             this.ship.style.top = value + "px";
         }
     });
+
 // Ajout d'un argument pour l'apparition
     Object.defineProperty(this, "display", {
         get: function() {
@@ -61,9 +62,20 @@ Sprite.prototype.stopAnimation = function() {
     window.clearInterval (this._clock);
 };
 
+<<<<<<< HEAD
 Sprite.prototype.checkCollision = function(other) {
     return ! ( (this.top + this._ship.height < other.top) ||
                 this.top > (other.top + other._ship.height) ||
                 (this.left + this._ship.width < other.left) ||
                 this.left > (other.left + other._ship.width) );
 }
+=======
+
+// Vérification si il y a collision ou non
+Sprite.prototype.checkCollision = function(other) {
+    return  !  ((this.top + this.ship.height < other.top) ||
+                this.top > (other.top + other.ship.height) ||
+                (this.left + this.ship.width < other.left ) ||
+                this.left > (other.left + other.ship.width) );
+}
+>>>>>>> 820f7feec9c7141d871ab9bc964cfb5745016dea

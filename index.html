@@ -15,48 +15,57 @@
         <h1 class="text">SpaceInvader 1978</h1>
     </div>
     <script type="text/javascript">
+        var shoot = document.createElement("audio");
+        shoot.src = "son/shoot.wav";
+        shoot.volume = 0.5;
+        var kill = document.createElement("audio");
+        kill.src = "son/invaderkilled.wav";
+        kill.volume = 0.2;
+        var explosion = document.createElement("audio");
+        explosion.src = "son/explosion.wav";
+        explosion.volume = 0.6;
         // Création des entités 
         var invadership = new Sprite("../images/invader_3.png", -100, 90, 100);      //vaisseau bonus
 
-        var invader1 = new Sprite("../images/invader_1.png", 500, 200, 70);
-        var invader2 = new Sprite("../images/invader_1.png", 600, 200, 70);
-        var invader3 = new Sprite("../images/invader_1.png", 700, 200, 70);
-        var invader4 = new Sprite("../images/invader_1.png", 800, 200, 70);
-        var invader5 = new Sprite("../images/invader_1.png", 900, 200, 70);
-        var invader6 = new Sprite("../images/invader_1.png", 1000, 200, 70);
-        var invader7 = new Sprite("../images/invader_1.png", 1100, 200, 70);
-        var invader8 = new Sprite("../images/invader_1.png", 1200, 200, 70);
-        var invader9 = new Sprite("../images/invader_1.png", 1300, 200, 70);
+        var invader1 = new Sprite("../images/invader_1.png", 500, 200, 50);
+        var invader2 = new Sprite("../images/invader_1.png", 600, 200, 50);
+        var invader3 = new Sprite("../images/invader_1.png", 700, 200, 50);
+        var invader4 = new Sprite("../images/invader_1.png", 800, 200, 50);
+        var invader5 = new Sprite("../images/invader_1.png", 900, 200, 50);
+        var invader6 = new Sprite("../images/invader_1.png", 1000, 200, 50);
+        var invader7 = new Sprite("../images/invader_1.png", 1100, 200, 50);
+        var invader8 = new Sprite("../images/invader_1.png", 1200, 200, 50);
+        var invader9 = new Sprite("../images/invader_1.png", 1300, 200,50);
 
-        var invader10 = new Sprite("../images/invader_2.png", 500, 270, 70);
-        var invader11 = new Sprite("../images/invader_2.png", 600, 270, 70);
-        var invader12 = new Sprite("../images/invader_2.png", 700, 270, 70);
-        var invader13 = new Sprite("../images/invader_2.png", 800, 270, 70);
-        var invader14 = new Sprite("../images/invader_2.png", 900, 270, 70);
-        var invader15 = new Sprite("../images/invader_2.png", 1000, 270, 70);
-        var invader16 = new Sprite("../images/invader_2.png", 1100, 270, 70);
-        var invader17 = new Sprite("../images/invader_2.png", 1200, 270, 70);
-        var invader18 = new Sprite("../images/invader_2.png", 1300, 270, 70);
+        var invader10 = new Sprite("../images/invader_2.png", 500, 270, 33);
+        var invader11 = new Sprite("../images/invader_2.png", 600, 270, 33);
+        var invader12 = new Sprite("../images/invader_2.png", 700, 270, 33);
+        var invader13 = new Sprite("../images/invader_2.png", 800, 270, 33);
+        var invader14 = new Sprite("../images/invader_2.png", 900, 270, 33);
+        var invader15 = new Sprite("../images/invader_2.png", 1000, 270, 33);
+        var invader16 = new Sprite("../images/invader_2.png", 1100, 270, 33);
+        var invader17 = new Sprite("../images/invader_2.png", 1200, 270, 33);
+        var invader18 = new Sprite("../images/invader_2.png", 1300, 270, 33);
 
-        var invader19 = new Sprite("../images/invader_1.png", 500, 340, 70);
-        var invader20 = new Sprite("../images/invader_1.png", 600, 340, 70);
-        var invader21 = new Sprite("../images/invader_1.png", 700, 340, 70);
-        var invader22 = new Sprite("../images/invader_1.png", 800, 340, 70);
-        var invader23 = new Sprite("../images/invader_1.png", 900, 340, 70);
-        var invader24 = new Sprite("../images/invader_1.png", 1000, 340, 70);
-        var invader25 = new Sprite("../images/invader_1.png", 1100, 340, 70);
-        var invader26 = new Sprite("../images/invader_1.png", 1200, 340, 70);
-        var invader27 = new Sprite("../images/invader_1.png", 1300, 340, 70);
+        var invader19 = new Sprite("../images/invader_1.png", 500, 340, 50);
+        var invader20 = new Sprite("../images/invader_1.png", 600, 340, 50);
+        var invader21 = new Sprite("../images/invader_1.png", 700, 340, 50);
+        var invader22 = new Sprite("../images/invader_1.png", 800, 340, 50);
+        var invader23 = new Sprite("../images/invader_1.png", 900, 340, 50);
+        var invader24 = new Sprite("../images/invader_1.png", 1000, 340, 50);
+        var invader25 = new Sprite("../images/invader_1.png", 1100, 340, 50);
+        var invader26 = new Sprite("../images/invader_1.png", 1200, 340, 50);
+        var invader27 = new Sprite("../images/invader_1.png", 1300, 340, 50);
 
         var missile = new Sprite("../images/missile.png", 650, 550);
-        missile.height = "50";
+        missile.height = "20";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
-        vaisseau.left = document.body.clientWidth/2;
+        vaisseau.left = document.body.clientWidth/2 - 30;
+        vaisseau.top = window.innerHeight-100; //taille du body -100";
         vaisseau.height = "50";
-        vaisseau.top = "700";
         // Création des événements sur la reconnaissance des touches
-        document.onkeydown = function (event) {
+        document.onkeydown = function launch(event) {
             if (event.keyCode == 37) { // Aller a gauche
                 vaisseau.left -= 20;
             }
@@ -65,72 +74,92 @@
             }
             else if (event.keyCode == 32) { // Apparition du missile
                 if (missile.display == "none") {
+                    shoot.play();
                     missile.display = "block";
-                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width) / 2;
-                    missile.top = vaisseau.top;
-                    missile.startAnimation(moveMissile, 15);
+                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
+                    missile.startAnimation ( moveMissile, 15);
+                    missile.top = vaisseau.top - 30;
                 }
             }
-            if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour pas sortir de l'écran
-                vaisseau.left = 0;
+            if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour ne pas sortir de l'écran
+            vaisseau.left = 0;
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
-                vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
+            vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
-        function moveMissile(missile) {
-            missile.top = missile.top - 10;
-            if (missile.top < 0) {
+// Déplacement du tir du vaisseau
+        function moveMissile( missile ){
+            missile.top -= 10;
+            if (missile.top < 0 ) {
                 missile.stopAnimation();
                 missile.display = "none";
             }
-            for (var i = 1; i<=27; i++){
-                var invader = window["invader"+i];
-                if(invader.display == "none")continue;
-                if(missile.checkCollision(invader)){
+            for(i=1; i<=27; i++) {
+                var invader = window["invader" + i];
+                if (invader.display == "none") continue;
+                if (missile.checkCollision(invader)){
+                    kill.play();
                     missile.stopAnimation();
                     missile.display ="none";
                     invader.stopAnimation();
                     invader.display ="none";
-                }
-            }
+                };
+            };
         }
-
-        function moveshipbonusleft(invadership){
+// Déplacement du bonus vers la gauche
+        function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
-            if (invadership.left<-1200){
+            if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 40)
             }
+            if (missile.checkCollision(invadership)){
+                missile.stopAnimation();
+                missile.display ="none";
+                invadership.stopAnimation();
+                invadership.display ="none";
+            }
         }
 
+// Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation( moveshipbonusleft, 40 ); 
+                invadership.startAnimation(moveshipbonusleft, 40);
             }
         }
         invadership.startAnimation(moveshipbonusright, 22)
+        
 
-        function moveInvaderLeft(invader) {
+
+// Déplacement invader vers la gauche
+        function moveinvaderleft(invader) {
+            var verif = true;
             invader.left = invader.left - 3;
-            if (invader.left <=0) {
-                invader.top = invader.top + 70;
-                invader.startAnimation( moveInvaderRight, 40 );
+            for ( i = 1; i<=27; i++){
+                if (window["invader"+i].left <= 0 && verif) {
+                    invader.top = invader.top + 70;
+                    invader.startAnimation(moveinvaderright, 20);
+                    verif = false;
+                }
             }
         }
-        
-        function moveInvaderRight(invader) {
+// Déplacement invader vers là droite
+        function moveinvaderright(invader) {
+            var verif = true;
             invader.left = invader.left + 3;
-            if (invader.left > document.body.clientWidth - invader.ship.width) {
-                invader.top = invader.top + 70;
-                invader.startAnimation( moveInvaderLeft, 40 );
+            for ( i = 1; i<=27; i++){
+                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
+                    invader.top = invader.top + 70;
+                    invader.startAnimation(moveinvaderleft, 20);
+                    verif = false;
+                }
             }
-            
+
+        }
+        // animation des aliens
+        for (var i = 1; i <= 27; i++) {
+            window["invader" + i].startAnimation(moveinvaderright, 20);
         }
 
-        // animation des aliens
-        for (var i=1; i<=27; i++){
-            window["invader"+i].startAnimation( moveInvaderRight, 40 );
-        }
-        
     </script>
 </body>
 
