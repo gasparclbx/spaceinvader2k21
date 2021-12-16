@@ -15,15 +15,14 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <div class="gameover" style="display: none;">
-        <p>Game Over !</p><a href="index.html" id="restart">restart</a>
-    </div>
+    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" id="restart">restart</a></div>
+    <div class="win" style="display: none;"><p>Congrats !</p><a href="index.html" id="restart">restart</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
         song.src = "son/music.ogg";
         song.volume = 0.4;
-        song.pause();
+        song.play();
         song.loop = true;
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
@@ -34,6 +33,10 @@
         var explosion = document.createElement("audio");
         explosion.src = "son/explosion.wav";
         explosion.volume = 0.6;
+        var win = document.createElement("audio");
+        win.src = "son/win.wav";
+        var defeat = document.createElement("audio");
+        defeat.src = "son/defeat.wav";
         // Création des fichiers fixes
         var life1 = new Sprite("images/heart.png", 20, 25, 40);
         var life2 = new Sprite("images/heart.png", 70, 25, 40);
@@ -93,7 +96,7 @@
         var mur17 = new Sprite("images/mur.png", window.innerWidth - 1278, window.innerHeight - 179, 21);
         var mur18 = new Sprite("images/mur.png", window.innerWidth - 1257, window.innerHeight - 179, 21);
         var mur19 = new Sprite("images/mur.png", window.innerWidth - 1236, window.innerHeight - 179, 21);
-
+        var point = 0;
         var mur21 = new Sprite("images/mur.png", window.innerWidth - 1036, window.innerHeight - 200, 21);
         var mur22 = new Sprite("images/mur.png", window.innerWidth - 1015, window.innerHeight - 200, 21);
         var mur23 = new Sprite("images/mur.png", window.innerWidth - 994, window.innerHeight - 200, 21);
@@ -103,7 +106,6 @@
         var mur27 = new Sprite("images/mur.png", window.innerWidth - 910, window.innerHeight - 200, 21);
         var mur28 = new Sprite("images/mur.png", window.innerWidth - 889, window.innerHeight - 200, 21);
         var mur29 = new Sprite("images/mur.png", window.innerWidth - 868, window.innerHeight - 200, 21);
-
         var mur31 = new Sprite("images/mur.png", window.innerWidth - 1036, window.innerHeight - 179, 21);
         var mur32 = new Sprite("images/mur.png", window.innerWidth - 1015, window.innerHeight - 179, 21);
         var mur33 = new Sprite("images/mur.png", window.innerWidth - 994, window.innerHeight - 179, 21);
@@ -208,12 +210,23 @@
                     document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
+                if (score == 3200 && point == 1){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }else if (score == 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
         // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
-                invadership.startAnimation(moveshipbonusright, 60)
+                invadership.startAnimation(moveshipbonusright, 50)
             }
             if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
@@ -221,30 +234,51 @@
                 invadership.stopAnimation();
                 invadership.display = "none";
                 score += 500;
-                document.querySelector('.score').innerText = "Score: " + score;
+                point += 1;
+                document.querySelector('.score').innerText ="Score: "+score;
             }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }else if (score == 2700 && point == 0){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }    
         }
 
         // Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation(moveshipbonusleft, 60);
+                invadership.startAnimation(moveshipbonusleft, 50);
             }
-            if (missile.checkCollision(invadership)) {
+            if (missile.checkCollision(invadership)){
                 missile.stopAnimation();
-                missile.display = "none";
+                missile.display ="none";
                 invadership.stopAnimation();
-                invadership.display = "none";
+                invadership.display ="none";
                 score += 500;
-                document.querySelector('.score').innerText = "Score: " + score;
+                point += 1;
+                document.querySelector('.score').innerText ="Score: "+score;
             }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+                }else if (score >= 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
-        invadership.startAnimation(moveshipbonusright, 60)
-
-
-
-        // Déplacement invader vers la gauche
+        invadership.startAnimation(moveshipbonusright, 50)
+// Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
@@ -261,6 +295,7 @@
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     defeat.play();
@@ -272,6 +307,7 @@
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     defeat.play();
@@ -300,6 +336,7 @@
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     defeat.play();
@@ -310,6 +347,7 @@
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
+                    song.pause();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                     defeat.play();
@@ -321,7 +359,6 @@
                 life2.display = 'none';
                 life3.display = 'none';
             }
-
         }
         // animation des aliens
         for (i = 1; i <= 27; i++) {

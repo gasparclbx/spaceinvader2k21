@@ -59,6 +59,7 @@ body {
     font-size: 60px;
     background: black;
     z-index: 1;
+    opacity: 0.8;
 }
 #restart {
     font-size: 30px;
@@ -72,4 +73,19 @@ body {
 #restart:hover {
     transition: 0.2s;
     color: #73F340;
+}
+.win {
+    position: fixed;
+    text-align: center;
+    top: 30%;
+    left: 35%;
+    height: 200px;
+    width: 350px;
+    padding: 50px;
+    color: white;
+    font-family: Font;
+    font-size: 60px;
+    background: black;
+    z-index: 1;
+    opacity: 0.8;
 }
