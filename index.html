@@ -79,7 +79,7 @@
                 else{
                     var x = 0;
                     while(x <= space){
-                        var wall = new Sprite("images/mur.png", space*nb_space + x, 700 + line*21, 22);
+                        var wall = new Sprite("images/mur.png", space*nb_space + x, window.innerHeight-200 + line*21, 22);
                         window["new_wall" + i] = wall;  //pour que chaque mur ait une variable avec un nom unique
                         x = x + 21;
                         i = i + 1;
@@ -89,6 +89,7 @@
             }
             line = line + 1;
         }
+
 
         var missile = new Sprite("../images/missile.png", 650, 550);
         missile.height = "20";
