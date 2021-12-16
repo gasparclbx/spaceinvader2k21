@@ -15,7 +15,9 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" id="restart">restart</a></div>
+    <div class="gameover" style="display: none;">
+        <p>Game Over !</p><a href="index.html" id="restart">restart</a>
+    </div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -70,95 +72,95 @@
         var invader26 = new Sprite("images/invader_1.png", 1100, 340, 45);
         var invader27 = new Sprite("images/invader_1.png", 1200, 340, 45);
 
-        
 
-        var mur1 = new Sprite("images/mur.png",  window.innerWidth -1404, window.innerHeight-200, 21);
-        var mur2 = new Sprite("images/mur.png",  window.innerWidth -1383, window.innerHeight-200, 21);
-        var mur3 = new Sprite("images/mur.png",  window.innerWidth -1362, window.innerHeight-200, 21);
-        var mur4 = new Sprite("images/mur.png",  window.innerWidth -1341, window.innerHeight-200, 21);
-        var mur5 = new Sprite("images/mur.png",  window.innerWidth -1320, window.innerHeight-200, 21);
-        var mur6 = new Sprite("images/mur.png",  window.innerWidth -1299, window.innerHeight-200, 21);
-        var mur7 = new Sprite("images/mur.png",  window.innerWidth -1278, window.innerHeight-200, 21);
-        var mur8 = new Sprite("images/mur.png",  window.innerWidth -1257, window.innerHeight-200, 21);
-        var mur9 = new Sprite("images/mur.png",  window.innerWidth -1236, window.innerHeight-200, 21);
-        
-        var mur11 = new Sprite("images/mur.png", window.innerWidth -1404, window.innerHeight-179, 21);
-        var mur12 = new Sprite("images/mur.png", window.innerWidth -1383, window.innerHeight-179, 21);
-        var mur13 = new Sprite("images/mur.png", window.innerWidth -1362, window.innerHeight-179, 21);
-        var mur14 = new Sprite("images/mur.png", window.innerWidth -1341, window.innerHeight-179, 21);
-        var mur15 = new Sprite("images/mur.png", window.innerWidth -1320, window.innerHeight-179, 21);
-        var mur16 = new Sprite("images/mur.png", window.innerWidth -1299, window.innerHeight-179, 21);
-        var mur17 = new Sprite("images/mur.png", window.innerWidth -1278, window.innerHeight-179, 21);
-        var mur18 = new Sprite("images/mur.png", window.innerWidth -1257, window.innerHeight-179, 21);
-        var mur19 = new Sprite("images/mur.png", window.innerWidth -1236, window.innerHeight-179, 21);
 
-        var mur21 = new Sprite("images/mur.png", window.innerWidth -1036, window.innerHeight-200, 21);
-        var mur22 = new Sprite("images/mur.png", window.innerWidth -1015, window.innerHeight-200, 21);
-        var mur23 = new Sprite("images/mur.png", window.innerWidth -994, window.innerHeight-200, 21);
-        var mur24 = new Sprite("images/mur.png", window.innerWidth -973, window.innerHeight-200, 21);
-        var mur25 = new Sprite("images/mur.png", window.innerWidth -952, window.innerHeight-200, 21);
-        var mur26 = new Sprite("images/mur.png", window.innerWidth -931, window.innerHeight-200, 21);
-        var mur27 = new Sprite("images/mur.png", window.innerWidth -910, window.innerHeight-200, 21);
-        var mur28 = new Sprite("images/mur.png", window.innerWidth -889, window.innerHeight-200, 21);
-        var mur29 = new Sprite("images/mur.png", window.innerWidth -868, window.innerHeight-200, 21);
-        
-        var mur31 = new Sprite("images/mur.png", window.innerWidth -1036, window.innerHeight-179, 21);
-        var mur32 = new Sprite("images/mur.png", window.innerWidth -1015, window.innerHeight-179, 21);
-        var mur33 = new Sprite("images/mur.png", window.innerWidth -994, window.innerHeight-179, 21);
-        var mur34 = new Sprite("images/mur.png", window.innerWidth -973, window.innerHeight-179, 21);
-        var mur35 = new Sprite("images/mur.png", window.innerWidth -952, window.innerHeight-179, 21);
-        var mur36 = new Sprite("images/mur.png", window.innerWidth -931, window.innerHeight-179, 21);
-        var mur37 = new Sprite("images/mur.png", window.innerWidth -910, window.innerHeight-179, 21);
-        var mur38 = new Sprite("images/mur.png", window.innerWidth -889, window.innerHeight-179, 21);
-        var mur39 = new Sprite("images/mur.png", window.innerWidth -868, window.innerHeight-179, 21);
+        var mur1 = new Sprite("images/mur.png", window.innerWidth - 1404, window.innerHeight - 200, 21);
+        var mur2 = new Sprite("images/mur.png", window.innerWidth - 1383, window.innerHeight - 200, 21);
+        var mur3 = new Sprite("images/mur.png", window.innerWidth - 1362, window.innerHeight - 200, 21);
+        var mur4 = new Sprite("images/mur.png", window.innerWidth - 1341, window.innerHeight - 200, 21);
+        var mur5 = new Sprite("images/mur.png", window.innerWidth - 1320, window.innerHeight - 200, 21);
+        var mur6 = new Sprite("images/mur.png", window.innerWidth - 1299, window.innerHeight - 200, 21);
+        var mur7 = new Sprite("images/mur.png", window.innerWidth - 1278, window.innerHeight - 200, 21);
+        var mur8 = new Sprite("images/mur.png", window.innerWidth - 1257, window.innerHeight - 200, 21);
+        var mur9 = new Sprite("images/mur.png", window.innerWidth - 1236, window.innerHeight - 200, 21);
 
-        var mur41 = new Sprite("images/mur.png", window.innerWidth -668, window.innerHeight-200, 21);
-        var mur42 = new Sprite("images/mur.png", window.innerWidth -647, window.innerHeight-200, 21);
-        var mur43 = new Sprite("images/mur.png", window.innerWidth -626, window.innerHeight-200, 21);
-        var mur44 = new Sprite("images/mur.png", window.innerWidth -605, window.innerHeight-200, 21);
-        var mur45 = new Sprite("images/mur.png", window.innerWidth -584, window.innerHeight-200, 21);
-        var mur46 = new Sprite("images/mur.png", window.innerWidth -563, window.innerHeight-200, 21);
-        var mur74 = new Sprite("images/mur.png", window.innerWidth -542, window.innerHeight-200, 21);
-        var mur48 = new Sprite("images/mur.png", window.innerWidth -521, window.innerHeight-200, 21);
-        var mur49 = new Sprite("images/mur.png", window.innerWidth -500, window.innerHeight-200, 21);
+        var mur11 = new Sprite("images/mur.png", window.innerWidth - 1404, window.innerHeight - 179, 21);
+        var mur12 = new Sprite("images/mur.png", window.innerWidth - 1383, window.innerHeight - 179, 21);
+        var mur13 = new Sprite("images/mur.png", window.innerWidth - 1362, window.innerHeight - 179, 21);
+        var mur14 = new Sprite("images/mur.png", window.innerWidth - 1341, window.innerHeight - 179, 21);
+        var mur15 = new Sprite("images/mur.png", window.innerWidth - 1320, window.innerHeight - 179, 21);
+        var mur16 = new Sprite("images/mur.png", window.innerWidth - 1299, window.innerHeight - 179, 21);
+        var mur17 = new Sprite("images/mur.png", window.innerWidth - 1278, window.innerHeight - 179, 21);
+        var mur18 = new Sprite("images/mur.png", window.innerWidth - 1257, window.innerHeight - 179, 21);
+        var mur19 = new Sprite("images/mur.png", window.innerWidth - 1236, window.innerHeight - 179, 21);
 
-        var mur51 = new Sprite("images/mur.png", window.innerWidth -668, window.innerHeight-179, 21);
-        var mur52 = new Sprite("images/mur.png",window.innerWidth  -647, window.innerHeight-179, 21);
-        var mur53 = new Sprite("images/mur.png", window.innerWidth -626, window.innerHeight-179, 21);
-        var mur54 = new Sprite("images/mur.png", window.innerWidth -605, window.innerHeight-179, 21);
-        var mur55 = new Sprite("images/mur.png", window.innerWidth -584, window.innerHeight-179, 21);
-        var mur56 = new Sprite("images/mur.png", window.innerWidth -563, window.innerHeight-179, 21);
-        var mur54 = new Sprite("images/mur.png", window.innerWidth -542, window.innerHeight-179, 21);
-        var mur58 = new Sprite("images/mur.png", window.innerWidth -521, window.innerHeight-179, 21);
-        var mur59 = new Sprite("images/mur.png", window.innerWidth -500, window.innerHeight-179, 21);
+        var mur21 = new Sprite("images/mur.png", window.innerWidth - 1036, window.innerHeight - 200, 21);
+        var mur22 = new Sprite("images/mur.png", window.innerWidth - 1015, window.innerHeight - 200, 21);
+        var mur23 = new Sprite("images/mur.png", window.innerWidth - 994, window.innerHeight - 200, 21);
+        var mur24 = new Sprite("images/mur.png", window.innerWidth - 973, window.innerHeight - 200, 21);
+        var mur25 = new Sprite("images/mur.png", window.innerWidth - 952, window.innerHeight - 200, 21);
+        var mur26 = new Sprite("images/mur.png", window.innerWidth - 931, window.innerHeight - 200, 21);
+        var mur27 = new Sprite("images/mur.png", window.innerWidth - 910, window.innerHeight - 200, 21);
+        var mur28 = new Sprite("images/mur.png", window.innerWidth - 889, window.innerHeight - 200, 21);
+        var mur29 = new Sprite("images/mur.png", window.innerWidth - 868, window.innerHeight - 200, 21);
 
-        var mur61 = new Sprite("images/mur.png", window.innerWidth -300   , window.innerHeight-200, 21);
-        var mur62 = new Sprite("images/mur.png", window.innerWidth -279, window.innerHeight-200, 21);
-        var mur63 = new Sprite("images/mur.png", window.innerWidth -258, window.innerHeight-200, 21);
-        var mur64 = new Sprite("images/mur.png", window.innerWidth -237, window.innerHeight-200, 21);
-        var mur65 = new Sprite("images/mur.png", window.innerWidth -216, window.innerHeight-200, 21);
-        var mur66 = new Sprite("images/mur.png",window.innerWidth -195, window.innerHeight-200, 21);
-        var mur67 = new Sprite("images/mur.png", window.innerWidth -174, window.innerHeight-200, 21);
-        var mur68 = new Sprite("images/mur.png",window.innerWidth -153, window.innerHeight-200, 21);
-        var mur69 = new Sprite("images/mur.png", window.innerWidth -132, window.innerHeight-200, 21);
-        
-        
-        var mur71 = new Sprite("images/mur.png", window.innerWidth -300, window.innerHeight-179, 21);
-        var mur72 = new Sprite("images/mur.png", window.innerWidth -279, window.innerHeight-179, 21);
-        var mur73 = new Sprite("images/mur.png", window.innerWidth -258, window.innerHeight-179, 21);
-        var mur74 = new Sprite("images/mur.png", window.innerWidth -237, window.innerHeight-179, 21);
-        var mur75 = new Sprite("images/mur.png", window.innerWidth -216, window.innerHeight-179, 21);
-        var mur76 = new Sprite("images/mur.png", window.innerWidth -195, window.innerHeight-179, 21);
-        var mur77 = new Sprite("images/mur.png", window.innerWidth -174, window.innerHeight-179, 21);
-        var mur78 = new Sprite("images/mur.png", window.innerWidth -153, window.innerHeight-179, 21);
-        var mur79 = new Sprite("images/mur.png",  window.innerWidth -132, window.innerHeight-179, 21);
+        var mur31 = new Sprite("images/mur.png", window.innerWidth - 1036, window.innerHeight - 179, 21);
+        var mur32 = new Sprite("images/mur.png", window.innerWidth - 1015, window.innerHeight - 179, 21);
+        var mur33 = new Sprite("images/mur.png", window.innerWidth - 994, window.innerHeight - 179, 21);
+        var mur34 = new Sprite("images/mur.png", window.innerWidth - 973, window.innerHeight - 179, 21);
+        var mur35 = new Sprite("images/mur.png", window.innerWidth - 952, window.innerHeight - 179, 21);
+        var mur36 = new Sprite("images/mur.png", window.innerWidth - 931, window.innerHeight - 179, 21);
+        var mur37 = new Sprite("images/mur.png", window.innerWidth - 910, window.innerHeight - 179, 21);
+        var mur38 = new Sprite("images/mur.png", window.innerWidth - 889, window.innerHeight - 179, 21);
+        var mur39 = new Sprite("images/mur.png", window.innerWidth - 868, window.innerHeight - 179, 21);
+
+        var mur41 = new Sprite("images/mur.png", window.innerWidth - 668, window.innerHeight - 200, 21);
+        var mur42 = new Sprite("images/mur.png", window.innerWidth - 647, window.innerHeight - 200, 21);
+        var mur43 = new Sprite("images/mur.png", window.innerWidth - 626, window.innerHeight - 200, 21);
+        var mur44 = new Sprite("images/mur.png", window.innerWidth - 605, window.innerHeight - 200, 21);
+        var mur45 = new Sprite("images/mur.png", window.innerWidth - 584, window.innerHeight - 200, 21);
+        var mur46 = new Sprite("images/mur.png", window.innerWidth - 563, window.innerHeight - 200, 21);
+        var mur74 = new Sprite("images/mur.png", window.innerWidth - 542, window.innerHeight - 200, 21);
+        var mur48 = new Sprite("images/mur.png", window.innerWidth - 521, window.innerHeight - 200, 21);
+        var mur49 = new Sprite("images/mur.png", window.innerWidth - 500, window.innerHeight - 200, 21);
+
+        var mur51 = new Sprite("images/mur.png", window.innerWidth - 668, window.innerHeight - 179, 21);
+        var mur52 = new Sprite("images/mur.png", window.innerWidth - 647, window.innerHeight - 179, 21);
+        var mur53 = new Sprite("images/mur.png", window.innerWidth - 626, window.innerHeight - 179, 21);
+        var mur54 = new Sprite("images/mur.png", window.innerWidth - 605, window.innerHeight - 179, 21);
+        var mur55 = new Sprite("images/mur.png", window.innerWidth - 584, window.innerHeight - 179, 21);
+        var mur56 = new Sprite("images/mur.png", window.innerWidth - 563, window.innerHeight - 179, 21);
+        var mur54 = new Sprite("images/mur.png", window.innerWidth - 542, window.innerHeight - 179, 21);
+        var mur58 = new Sprite("images/mur.png", window.innerWidth - 521, window.innerHeight - 179, 21);
+        var mur59 = new Sprite("images/mur.png", window.innerWidth - 500, window.innerHeight - 179, 21);
+
+        var mur61 = new Sprite("images/mur.png", window.innerWidth - 300, window.innerHeight - 200, 21);
+        var mur62 = new Sprite("images/mur.png", window.innerWidth - 279, window.innerHeight - 200, 21);
+        var mur63 = new Sprite("images/mur.png", window.innerWidth - 258, window.innerHeight - 200, 21);
+        var mur64 = new Sprite("images/mur.png", window.innerWidth - 237, window.innerHeight - 200, 21);
+        var mur65 = new Sprite("images/mur.png", window.innerWidth - 216, window.innerHeight - 200, 21);
+        var mur66 = new Sprite("images/mur.png", window.innerWidth - 195, window.innerHeight - 200, 21);
+        var mur67 = new Sprite("images/mur.png", window.innerWidth - 174, window.innerHeight - 200, 21);
+        var mur68 = new Sprite("images/mur.png", window.innerWidth - 153, window.innerHeight - 200, 21);
+        var mur69 = new Sprite("images/mur.png", window.innerWidth - 132, window.innerHeight - 200, 21);
+
+
+        var mur71 = new Sprite("images/mur.png", window.innerWidth - 300, window.innerHeight - 179, 21);
+        var mur72 = new Sprite("images/mur.png", window.innerWidth - 279, window.innerHeight - 179, 21);
+        var mur73 = new Sprite("images/mur.png", window.innerWidth - 258, window.innerHeight - 179, 21);
+        var mur74 = new Sprite("images/mur.png", window.innerWidth - 237, window.innerHeight - 179, 21);
+        var mur75 = new Sprite("images/mur.png", window.innerWidth - 216, window.innerHeight - 179, 21);
+        var mur76 = new Sprite("images/mur.png", window.innerWidth - 195, window.innerHeight - 179, 21);
+        var mur77 = new Sprite("images/mur.png", window.innerWidth - 174, window.innerHeight - 179, 21);
+        var mur78 = new Sprite("images/mur.png", window.innerWidth - 153, window.innerHeight - 179, 21);
+        var mur79 = new Sprite("images/mur.png", window.innerWidth - 132, window.innerHeight - 179, 21);
 
         var missile = new Sprite("../images/missile.png", 650, 550);
         missile.height = "15";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
-        vaisseau.left = document.body.clientWidth/2 - 30;
-        vaisseau.top = window.innerHeight-100; //taille du body -100";
+        vaisseau.left = document.body.clientWidth / 2 - 30;
+        vaisseau.top = window.innerHeight - 100; //taille du body -100";
         vaisseau.height = "50";
         // Création du score
         var score = 0;
@@ -177,146 +179,153 @@
                 if (missile.display == "none") {
                     shoot.play();
                     missile.display = "block";
-                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
-                    missile.startAnimation ( moveMissile, 15);
+                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width) / 2;
+                    missile.startAnimation(moveMissile, 15);
                     missile.top = vaisseau.top - 30;
                 }
             }
             if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour ne pas sortir de l'écran
-            vaisseau.left = 0;
+                vaisseau.left = 0;
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
-            vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
+                vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
-// Déplacement du tir du vaisseau
-        function moveMissile( missile ){
+        // Déplacement du tir du vaisseau
+        function moveMissile(missile) {
             missile.top -= 10;
-            if (missile.top <= 0 ) {
+            if (missile.top <= 0) {
                 missile.display = "none";
             }
-            for(i=1; i<=27; i++) {
+            for (i = 1; i <= 27; i++) {
                 var invader = window["invader" + i];
-                if (invader.display == "none")continue; 
-                if (missile.checkCollision(invader)){
+                if (invader.display == "none") continue;
+                if (missile.checkCollision(invader)) {
                     kill.play();
                     missile.stopAnimation();
-                    missile.display ="none";
+                    missile.display = "none";
                     invader.stopAnimation();
-                    invader.display ="none";
+                    invader.display = "none";
                     score += 100;
-                    document.querySelector('.score').innerText ="Score: "+score;
+                    document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
         }
-// Déplacement du bonus vers la gauche
+        // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 60)
             }
-            if (missile.checkCollision(invadership)){
+            if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
-                missile.display ="none";
+                missile.display = "none";
                 invadership.stopAnimation();
-                invadership.display ="none";
+                invadership.display = "none";
                 score += 500;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
         }
 
-// Déplacement du bonus vers la droite
+        // Déplacement du bonus vers la droite
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
                 invadership.startAnimation(moveshipbonusleft, 60);
             }
-            if (missile.checkCollision(invadership)){
+            if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
-                missile.display ="none";
+                missile.display = "none";
                 invadership.stopAnimation();
-                invadership.display ="none";
+                invadership.display = "none";
                 score += 500;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
         }
         invadership.startAnimation(moveshipbonusright, 60)
-        
 
 
-// Déplacement invader vers la gauche
+
+        // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
             // déplacement des invader
-            for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left <= 0 && verif) {
+            for (i = 1; i <= 27; i++) {
+                if (window["invader" + i].left <= 0 && verif) {
                     invader.top = invader.top + 30;
                     invader.startAnimation(moveinvaderright, 40);
                     verif = false;
                 }
             }
-            if (invader.checkCollision(vaisseau)){
-                for(i=1; i<=27; i++){
-                    window["invader"+i].stopAnimation();
-                    window["invader"+i].display = "none";
+            if (invader.checkCollision(vaisseau)) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                     nbvie = 0;
                 }
-            
-            }else if (invader.top > window.innerHeight-100){
-                for(i=1; i<=27; i++){
-                    window["invader"+i].stopAnimation();
-                    window["invader"+i].display = "none";
+
+            } else if (invader.top > window.innerHeight - 100) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
                 }
             }
-            if (nbvie == 0){
-                life1.display = "none";
-                life2.display = "none";
-                life3.display = "none";
+            if (nbvie == 0) {
+                life1.display = 'none';
+                life2.display = 'none';
+                life3.display = 'none';
             }
         }
-// Déplacement invader vers là droite
+        // Déplacement invader vers là droite
         function moveinvaderright(invader) {
             var verif = true;
             invader.left = invader.left + 3;
-            for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - invader.ship.width && verif) {
+            for (i = 1; i <= 27; i++) {
+                if (window["invader" + i].left >= document.body.clientWidth - invader.ship.width && verif) {
                     invader.top = invader.top + 30;
                     invader.startAnimation(moveinvaderleft, 40);
                     verif = false;
                 }
             }
-            if (invader.checkCollision(vaisseau)){
-                for(i=1; i<=27; i++){
-                    window["invader"+i].stopAnimation();
-                    window["invader"+i].display = "none";
+            if (invader.checkCollision(vaisseau)) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
                     nbvie = 0;
                 }
-            }else if (invader.top > window.innerHeight-100){
-                for(i=1; i<=27; i++){
-                    window["invader"+i].stopAnimation();
-                    window["invader"+i].display = "none";
+            } else if (invader.top > window.innerHeight - 100) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
                     invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
                 }
             }
-            if (nbvie == 0){
-                life1.display = "none";
-                life2.display = "none";
-                life3.display = "none";
+            if (nbvie == 0) {
+                life1.display = 'none';
+                life2.display = 'none';
+                life3.display = 'none';
             }
+
         }
         // animation des aliens
-        for ( i = 1; i <= 27; i++) {
-            window["invader" + i].startAnimation(moveinvaderright, 40);
+        for (i = 1; i <= 27; i++) {
+            window["invader" + i].startAnimation(moveinvaderright, 20);
         }
     </script>
 </body>
