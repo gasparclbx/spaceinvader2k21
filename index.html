@@ -129,25 +129,32 @@
         invadership.startAnimation(moveshipbonusright, 22)
 // Déplacement vers la gauche
         function moveinvaderleft(invader) {
+            var verif = true;
             invader.left = invader.left - 3;
-            if (invader1.left <= 0) {
-                invader.top = invader.top + 70;
-                invader.startAnimation(moveinvaderright, 40);
+            for ( i = 1; i<=27; i++){
+                if (window["invader"+i].left <= 0 && verif) {
+                    invader.top = invader.top + 70;
+                    invader.startAnimation(moveinvaderright, 20);
+                    verif = false;
+                }
             }
         }
 // Déplacement vers là droite
         function moveinvaderright(invader) {
+            var verif = true;
             invader.left = invader.left + 3;
-            if (invader9.left > document.body.clientWidth - invader.ship.width) {
-                invader.top = invader.top + 70;
-                invader.startAnimation(moveinvaderleft, 40);
+            for ( i = 1; i<=27; i++){
+                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
+                    invader.top = invader.top + 70;
+                    invader.startAnimation(moveinvaderleft, 20);
+                    verif = false;
+                }
             }
 
         }
-
         // animation des aliens
         for (var i = 1; i <= 27; i++) {
-            window["invader" + i].startAnimation(moveinvaderright, 40);
+            window["invader" + i].startAnimation(moveinvaderright, 20);
         }
 
     </script>
