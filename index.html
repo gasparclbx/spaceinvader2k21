@@ -132,31 +132,29 @@
 
 // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
-            var test = true;
+            var verif = true;
             invader.left = invader.left - 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left <= 0 && test) {
+                if (window["invader"+i].left <= 0 && verif) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderright, 20);
-                    test = false;
-
+                    verif = false;
                 }
             }
         }
 // Déplacement invader vers là droite
         function moveinvaderright(invader) {
-            var test = true;
+            var verif = true;
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && test) {
+                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
                     invader.top = invader.top + 70;
                     invader.startAnimation(moveinvaderleft, 20);
-                    test = false;
+                    verif = false;
                 }
             }
 
         }
-
         // animation des aliens
         for (var i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
