@@ -202,9 +202,9 @@
                     missile.stopAnimation();
                     missile.display ="none";
                     invader.stopAnimation();
+                    invader.display ="none";
                     score += 100;
                     document.querySelector('.score').innerText ="Score: "+score;
-                    invader.display ="none";
                 };
             };
         }
@@ -277,7 +277,7 @@
             var verif = true;
             invader.left = invader.left + 3;
             for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
+                if (window["invader"+i].left >= document.body.clientWidth - invader.ship.width && verif) {
                     invader.top = invader.top + 30;
                     invader.startAnimation(moveinvaderleft, 40);
                     verif = false;
@@ -301,7 +301,7 @@
             }
         }
         // animation des aliens
-        for (var i = 1; i <= 27; i++) {
+        for ( i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 40);
         }
     </script>
