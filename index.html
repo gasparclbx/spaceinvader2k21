@@ -15,7 +15,7 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <p class="gameover" style="display: none;">Game Over !</p>
+    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" id="restart">restart</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -193,7 +193,7 @@
 // Déplacement du tir du vaisseau
         function moveMissile( missile ){
             missile.top -= 10;
-            if (missile.top < 0 ) {
+            if (missile.top <= 0 ) {
                 missile.stopAnimation();
                 missile.display = "none";
             }
@@ -252,10 +252,20 @@
             if (invader.checkCollision(vaisseau)){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
+                    window["invader"+i].display = "none";
+                    invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                 }
-             }
+            
+            }else if (invader.top > window.innerHeight-100)
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    window["invader"+i].display = "none";
+                    invadership.stopAnimation();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                }
         }
 // Déplacement invader vers là droite
         function moveinvaderright(invader) {
@@ -271,13 +281,22 @@
             if (invader.checkCollision(vaisseau)){
                 for(i=1; i<=27; i++){
                     window["invader"+i].stopAnimation();
+                    window["invader"+i].display = "none";
+                    invadership.stopAnimation();
                     document.querySelector('.gameover').innerText;
                     document.querySelector('.gameover').style.display = "block";
                 }
-            }
+            }else if (invader.top > window.innerHeight-100)
+                for(i=1; i<=27; i++){
+                    window["invader"+i].stopAnimation();
+                    window["invader"+i].display = "none";
+                    invadership.stopAnimation();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                }
         }
         // animation des aliens
-        for (var i = 1; i <= 27; i++) {
+        for (i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
         }
     </script>

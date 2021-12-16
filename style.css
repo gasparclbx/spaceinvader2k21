@@ -11,7 +11,7 @@
     border: 2px #73F340 solid;
     margin: 0 0 20px 0;
     font-family: Font;
-
+    z-index: 2;
 }
 body {
     background-color: rgb(24, 24, 24);
@@ -58,4 +58,18 @@ body {
     font-family: Font;
     font-size: 60px;
     background: black;
+    z-index: 1;
+}
+#restart {
+    font-size: 30px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+#restart:visited {
+    color: white;
+}
+#restart:hover {
+    transition: 0.2s;
+    color: #73F340;
 }
