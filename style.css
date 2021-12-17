@@ -61,16 +61,16 @@ body {
     z-index: 1;
     opacity: 0.8;
 }
-#restart {
+.restart {
     font-size: 30px;
     cursor: pointer;
     text-decoration: none;
 
 }
-#restart:visited {
+.restart:visited {
     color: white;
 }
-#restart:hover {
+.restart:hover {
     transition: 0.2s;
     color: #73F340;
 }
@@ -88,4 +88,15 @@ body {
     background: black;
     z-index: 1;
     opacity: 0.8;
+}
+.level {
+    color: white;
+    opacity: 0.7;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 10px 10px 100px;
+    margin: 0;
+}
+.levelpos {
+    padding: 25px 200px 5px 0;
 }

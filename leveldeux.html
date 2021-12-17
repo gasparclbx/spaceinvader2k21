@@ -12,12 +12,12 @@
 
 <body>
     <div class="navbar">
-        <p class="level levelpos">level 1</p>
+        <p class="level levelpos">level 2</p>
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
     <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" class="restart">restart</a></div>
-    <div class="win" style="display: none;"><p>Congrats !</p><a href="leveldeux.html" class="restart">Level 2</a></div>
+    <div class="win" style="display: none;"><p>Congrats !</p><a href="index.html" class="restart">restart</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -76,6 +76,16 @@
         var invader25 = new Sprite("images/invader_1.png", 1100, 340, 45);
         var invader26 = new Sprite("images/invader_1.png", 1200, 340, 45);
         var invader27 = new Sprite("images/invader_1.png", 1300, 340, 45);
+
+        var invader28 = new Sprite("images/invader_2.png", 500, 410, 35);
+        var invader29 = new Sprite("images/invader_2.png", 600, 410, 35);
+        var invader30 = new Sprite("images/invader_2.png", 700, 410, 35);
+        var invader31 = new Sprite("images/invader_2.png", 800, 410, 35);
+        var invader32 = new Sprite("images/invader_2.png", 900, 410, 35);
+        var invader33 = new Sprite("images/invader_2.png", 1000, 410, 35);
+        var invader34 = new Sprite("images/invader_2.png", 1100, 410, 35);
+        var invader35 = new Sprite("images/invader_2.png", 1200, 410, 35);
+        var invader36 = new Sprite("images/invader_2.png", 1300, 410, 35);
 
         var space = window.innerWidth/9; //fonction pour les murs
         var line = 0;
@@ -139,7 +149,7 @@
             if (missile.top <= 0) {
                 missile.display = "none";
             }
-            for (i = 1; i <= 27; i++) {
+            for (i = 1; i <= 36; i++) {
                 var invader = window["invader" + i];
                 if (invader.display == "none") continue;
                 if (missile.checkCollision(invader)) {
@@ -152,12 +162,12 @@
                     document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
-                if (score == 3200 && point == 1){
+                if (score == 4100 && point == 1){
                     song.pause();
                     document.querySelector('.win').innerText;
                     document.querySelector('.win').style.display = "block";
                     win.play();
-                }else if (score == 2700 && point == 0){
+                }else if (score == 3600 && point == 0){
                     song.pause();
                     document.querySelector('.win').innerText;
                     document.querySelector('.win').style.display = "block";
@@ -188,12 +198,12 @@
                 point += 1;
                 document.querySelector('.score').innerText ="Score: "+score;
             }
-            if (score == 3200 && point == 1){
+            if (score == 4100 && point == 1){
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-            }else if (score == 2700 && point == 0){
+            }else if (score == 3600 && point == 0){
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
@@ -216,12 +226,12 @@
                 point += 1;
                 document.querySelector('.score').innerText ="Score: "+score;
             }
-            if (score == 3200 && point == 1){
+            if (score == 4100 && point == 1){
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-                }else if (score >= 2700 && point == 0){
+                }else if (score >= 3600 && point == 0){
                     song.pause();
                     document.querySelector('.win').innerText;
                     document.querySelector('.win').style.display = "block";
@@ -234,15 +244,15 @@
             var verif = true;
             invader.left = invader.left - 3;
             // déplacement des invader
-            for (i = 1; i <= 27; i++) {
+            for (i = 1; i <= 36; i++) {
                 if (window["invader" + i].left <= 0 && verif) {
-                    invader.top = invader.top + 30;
-                    invader.startAnimation(moveinvaderright, 40);
+                    invader.top = invader.top + 20;
+                    invader.startAnimation(moveinvaderright, 50);
                     verif = false;
                 }
             }
             if (invader.checkCollision(vaisseau)) {
-                for (i = 1; i <= 27; i++) {
+                for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
@@ -254,7 +264,7 @@
                 }
 
             } else if (invader.top > window.innerHeight - 100) {
-                for (i = 1; i <= 27; i++) {
+                for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
@@ -270,26 +280,20 @@
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
-                }
-            }
         }
         // Déplacement invader vers là droite
         function moveinvaderright(invader) {
             var verif = true;
             invader.left = invader.left + 3;
-            for (i = 1; i <= 27; i++) {
+            for (i = 1; i <= 36; i++) {
                 if (window["invader" + i].left >= document.body.clientWidth - invader.ship.width && verif) {
-                    invader.top = invader.top + 30;
-                    invader.startAnimation(moveinvaderleft, 40);
+                    invader.top = invader.top + 20;
+                    invader.startAnimation(moveinvaderleft, 50);
                     verif = false;
                 }
             }
             if (invader.checkCollision(vaisseau)) {
-                for (i = 1; i <= 27; i++) {
+                for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
@@ -300,7 +304,7 @@
                     nbvie = 0;
                 }
             } else if (invader.top > window.innerHeight - 100) {
-                for (i = 1; i <= 27; i++) {
+                for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
                     window["invader" + i].display = "none";
                     invadership.stopAnimation();
@@ -316,15 +320,9 @@
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
-                }
-            }    
         }
         // animation des aliens
-        for (i = 1; i <= 27; i++) {
+        for (i = 1; i <= 36; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
         }
     </script>
