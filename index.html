@@ -16,8 +16,8 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" class="restart">restart</a></div>
-    <div class="win" style="display: none;"><p>Congrats !</p><a href="leveldeux.html" class="restart">Level 2</a></div>
+    <div class="gameover" style="display: none;"><p>Game Over !</p><p class="score"></p><a href="index.html" class="restart">restart</a></div>
+    <div class="win" style="display: none;"><p>Congrats !</p><p class="score"></p><a href="leveldeux.html" class="restart">Level 2</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -47,35 +47,35 @@
         // Création des entitées
         var invadership = new Sprite("images/invader_3.png", -100, 90, 40);      //vaisseau bonus
 
-        var invader1 = new Sprite("images/invader_1.png", 500, 200, 45);
-        var invader2 = new Sprite("images/invader_1.png", 600, 200, 45);
-        var invader3 = new Sprite("images/invader_1.png", 700, 200, 45);
-        var invader4 = new Sprite("images/invader_1.png", 800, 200, 45);
-        var invader5 = new Sprite("images/invader_1.png", 900, 200, 45);
-        var invader6 = new Sprite("images/invader_1.png", 1000, 200, 45);
-        var invader7 = new Sprite("images/invader_1.png", 1100, 200, 45);
-        var invader8 = new Sprite("images/invader_1.png", 1200, 200, 45);
-        var invader9 = new Sprite("images/invader_1.png", 1300, 200, 45);
+        var invader1 = new Sprite("images/invader_1.png", 510, 200, 45);
+        var invader2 = new Sprite("images/invader_1.png", 620, 200, 45);
+        var invader3 = new Sprite("images/invader_1.png", 730, 200, 45);
+        var invader4 = new Sprite("images/invader_1.png", 840, 200, 45);
+        var invader5 = new Sprite("images/invader_1.png", 950, 200, 45);
+        var invader6 = new Sprite("images/invader_1.png", 1060, 200, 45);
+        var invader7 = new Sprite("images/invader_1.png", 1170, 200, 45);
+        var invader8 = new Sprite("images/invader_1.png", 1280, 200, 45);
+        var invader9 = new Sprite("images/invader_1.png", 1390, 200, 45);
 
-        var invader10 = new Sprite("images/invader_2.png", 500, 270, 35);
-        var invader11 = new Sprite("images/invader_2.png", 600, 270, 35);
-        var invader12 = new Sprite("images/invader_2.png", 700, 270, 35);
-        var invader13 = new Sprite("images/invader_2.png", 800, 270, 35);
-        var invader14 = new Sprite("images/invader_2.png", 900, 270, 35);
-        var invader15 = new Sprite("images/invader_2.png", 1000, 270, 35);
-        var invader16 = new Sprite("images/invader_2.png", 1100, 270, 35);
-        var invader17 = new Sprite("images/invader_2.png", 1200, 270, 35);
-        var invader18 = new Sprite("images/invader_2.png", 1300, 270, 35);
+        var invader10 = new Sprite("images/invader_2.png", 510, 270, 30);
+        var invader11 = new Sprite("images/invader_2.png", 620, 270, 30);
+        var invader12 = new Sprite("images/invader_2.png", 730, 270, 30);
+        var invader13 = new Sprite("images/invader_2.png", 840, 270, 30);
+        var invader14 = new Sprite("images/invader_2.png", 950, 270, 30);
+        var invader15 = new Sprite("images/invader_2.png", 1060, 270, 30);
+        var invader16 = new Sprite("images/invader_2.png", 1170, 270, 30);
+        var invader17 = new Sprite("images/invader_2.png", 1280, 270, 30);
+        var invader18 = new Sprite("images/invader_2.png", 1390, 270, 30);
 
-        var invader19 = new Sprite("images/invader_1.png", 500, 340, 45);
-        var invader20 = new Sprite("images/invader_1.png", 600, 340, 45);
-        var invader21 = new Sprite("images/invader_1.png", 700, 340, 45);
-        var invader22 = new Sprite("images/invader_1.png", 800, 340, 45);
-        var invader23 = new Sprite("images/invader_1.png", 900, 340, 45);
-        var invader24 = new Sprite("images/invader_1.png", 1000, 340, 45);
-        var invader25 = new Sprite("images/invader_1.png", 1100, 340, 45);
-        var invader26 = new Sprite("images/invader_1.png", 1200, 340, 45);
-        var invader27 = new Sprite("images/invader_1.png", 1300, 340, 45);
+        var invader19 = new Sprite("images/invader_1.png", 510, 340, 45);
+        var invader20 = new Sprite("images/invader_1.png", 620, 340, 45);
+        var invader21 = new Sprite("images/invader_1.png", 730, 340, 45);
+        var invader22 = new Sprite("images/invader_1.png", 840, 340, 45);
+        var invader23 = new Sprite("images/invader_1.png", 950, 340, 45);
+        var invader24 = new Sprite("images/invader_1.png", 1060, 340, 45);
+        var invader25 = new Sprite("images/invader_1.png", 1170, 340, 45);
+        var invader26 = new Sprite("images/invader_1.png", 1280, 340, 45);
+        var invader27 = new Sprite("images/invader_1.png", 1390, 340, 45);
 
         var space = window.innerWidth/9; //fonction pour les murs
         var line = 0;
@@ -177,7 +177,7 @@
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
-                invadership.startAnimation(moveshipbonusright, 50)
+                invadership.startAnimation(moveshipbonusright, 40)
             }
             if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
@@ -205,7 +205,7 @@
         function moveshipbonusright(invadership) {
             invadership.left = invadership.left + 10;
             if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation(moveshipbonusleft, 50);
+                invadership.startAnimation(moveshipbonusleft, 40);
             }
             if (missile.checkCollision(invadership)){
                 missile.stopAnimation();
@@ -325,7 +325,7 @@
         }
         // animation des aliens
         for (i = 1; i <= 27; i++) {
-            window["invader" + i].startAnimation(moveinvaderright, 20);
+            window["invader" + i].startAnimation(moveinvaderright, 40);
         }
     </script>
 </body>
