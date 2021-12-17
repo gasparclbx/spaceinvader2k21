@@ -11,13 +11,22 @@
 </head>
 
 <body>
+    <!--Ajout de la Navbar-->
     <div class="navbar">
         <p class="level levelpos">level 1</p>
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <div class="gameover" style="display: none;"><p>Game Over !</p><p class="score"></p><a href="index.html" class="restart">restart</a></div>
-    <div class="win" style="display: none;"><p>Congrats !</p><p class="score"></p><a href="leveldeux.html" class="restart">Level 2</a></div>
+    <!--Affichage du Game Over-->
+    <div class="gameover" style="display: none;">
+        <p>Game Over !</p>
+        <p class="score"></p><a href="index.html" class="restart">restart</a>
+    </div>
+    <!--Affichage de Win-->
+    <div class="win" style="display: none;">
+        <p>Congrats !</p>
+        <p class="score"></p><a href="leveldeux.html" class="restart">Level 2</a>
+    </div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -76,20 +85,20 @@
         var invader25 = new Sprite("images/invader_1.png", 1170, 340, 45);
         var invader26 = new Sprite("images/invader_1.png", 1280, 340, 45);
         var invader27 = new Sprite("images/invader_1.png", 1390, 340, 45);
-
-        var space = window.innerWidth/9; //fonction pour les murs
+        // Générateur de variable Obstacle
+        var space = window.innerWidth / 9; 
         var line = 0;
         i = 1;
-        while(line < 2){
+        while (line < 2) {
             var nb_space = 0;
-            while(nb_space < 9){
-                if(nb_space % 2 == 0){
+            while (nb_space < 9) {
+                if (nb_space % 2 == 0) {
                     nb_space = nb_space + 1;
                 }
-                else{
+                else {
                     var x = 0;
-                    while(x <= space){
-                        var wall = new Sprite("images/mur.png", space*nb_space + x, window.innerHeight-200 + line*21, 22);
+                    while (x <= space) {
+                        var wall = new Sprite("images/mur.png", space * nb_space + x, window.innerHeight - 200 + line * 21, 22);
                         window["new_wall" + i] = wall;  //pour que chaque mur ait une variable avec un nom unique
                         x = x + 21;
                         i = i + 1;
@@ -124,7 +133,7 @@
                     shoot.play();
                     missile.display = "block";
                     missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width) / 2;
-                    missile.startAnimation(moveMissile, 15);
+                    missile.startAnimation(moveMissile, 10);
                     missile.top = vaisseau.top - 30;
                 }
             }
@@ -139,6 +148,7 @@
             if (missile.top <= 0) {
                 missile.display = "none";
             }
+            // Collision Missile/Invader et ajout de Score
             for (i = 1; i <= 27; i++) {
                 var invader = window["invader" + i];
                 if (invader.display == "none") continue;
@@ -152,26 +162,28 @@
                     document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
-                if (score == 3200 && point == 1){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }else if (score == 2700 && point == 0){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }
-                for(i=1; i<=89; i++) {
-                    var mur = window["new_wall" + i];
-                    if (mur.display == "none") continue;
-                    if (missile.checkCollision(mur)){
-                        missile.stopAnimation();
-                        missile.display ="none";
-                        mur.display ="none";
-                    };
-                }
+            // Condition de Win
+            if (score == 3200 && point == 1) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            } else if (score == 2700 && point == 0) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }
+            // Collision Missile/Mur
+            for (i = 1; i <= 89; i++) {
+                var mur = window["new_wall" + i];
+                if (mur.display == "none") continue;
+                if (missile.checkCollision(mur)) {
+                    missile.stopAnimation();
+                    missile.display = "none";
+                    mur.display = "none";
+                };
+            }
         }
         // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
@@ -179,6 +191,7 @@
             if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 40)
             }
+            //Collision Missile/Invader ship et Score
             if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
                 missile.display = "none";
@@ -186,19 +199,20 @@
                 invadership.display = "none";
                 score += 500;
                 point += 1;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
-            if (score == 3200 && point == 1){
+            // Condition de win
+            if (score == 3200 && point == 1) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-            }else if (score == 2700 && point == 0){
+            } else if (score == 2700 && point == 0) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-            }    
+            }
         }
 
         // Déplacement du bonus vers la droite
@@ -207,29 +221,30 @@
             if (invadership.left > document.body.clientWidth + 1200) {
                 invadership.startAnimation(moveshipbonusleft, 40);
             }
-            if (missile.checkCollision(invadership)){
+            // Collision Missile/ Ship bonus et Score
+            if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
-                missile.display ="none";
+                missile.display = "none";
                 invadership.stopAnimation();
-                invadership.display ="none";
+                invadership.display = "none";
                 score += 500;
                 point += 1;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
-            if (score == 3200 && point == 1){
+            if (score == 3200 && point == 1) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-                }else if (score >= 2700 && point == 0){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }    
+            } else if (score >= 2700 && point == 0) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }
         }
         invadership.startAnimation(moveshipbonusright, 50)
-// Déplacement invader vers la gauche
+        // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
@@ -241,6 +256,7 @@
                     verif = false;
                 }
             }
+            // Collision Invader/Vaisseau et GameOver
             if (invader.checkCollision(vaisseau)) {
                 for (i = 1; i <= 27; i++) {
                     window["invader" + i].stopAnimation();
@@ -265,15 +281,17 @@
                     nbvie = 0;
                 }
             }
+            // Disparition vie
             if (nbvie == 0) {
                 life1.display = 'none';
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
+            // Collision Invader/Mur
+            for (p = 1; p <= 80; p++) {
+                var walll = window["new_wall" + p];
+                if (walll.checkCollision(invader)) {
+                    walll.display = "none";
                 }
             }
         }
@@ -288,6 +306,7 @@
                     verif = false;
                 }
             }
+            // Collision Invader/Vaisseau et GameOver
             if (invader.checkCollision(vaisseau)) {
                 for (i = 1; i <= 27; i++) {
                     window["invader" + i].stopAnimation();
@@ -311,17 +330,19 @@
                     nbvie = 0;
                 }
             }
+            //Disparition de vie
             if (nbvie == 0) {
                 life1.display = 'none';
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
+            // Collision Invader/Mur
+            for (p = 1; p <= 80; p++) {
+                var walll = window["new_wall" + p];
+                if (walll.checkCollision(invader)) {
+                    walll.display = "none";
                 }
-            }    
+            }
         }
         // animation des aliens
         for (i = 1; i <= 27; i++) {

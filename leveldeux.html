@@ -11,13 +11,20 @@
 </head>
 
 <body>
+    <!-- Ajout navbar -->
     <div class="navbar">
         <p class="level levelpos">level 2</p>
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
-    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" class="restart">restart</a></div>
-    <div class="win" style="display: none;"><p>Congrats !</p><a href="index.html" class="restart">restart</a></div>
+    <!-- Affichage des messages de Game Over -->
+    <div class="gameover" style="display: none;">
+        <p>Game Over !</p><a href="index.html" class="restart">restart</a>
+    </div>
+    <!--Affichage du message de Win -->
+    <div class="win" style="display: none;">
+        <p>Congrats !</p><a href="index.html" class="restart">restart</a>
+    </div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
@@ -86,21 +93,21 @@
         var invader34 = new Sprite("images/invader_2.png", 1170, 410, 30);
         var invader35 = new Sprite("images/invader_2.png", 1280, 410, 30);
         var invader36 = new Sprite("images/invader_2.png", 1390, 410, 30);
-
-        var space = window.innerWidth/9; //fonction pour les murs
+        // Générateur des variables des obstacles
+        var space = window.innerWidth / 9; 
         var line = 0;
         i = 1;
-        while(line < 2){
+        while (line < 2) {
             var nb_space = 0;
-            while(nb_space < 9){
-                if(nb_space % 2 == 0){
+            while (nb_space < 9) {
+                if (nb_space % 2 == 0) {
                     nb_space = nb_space + 1;
                 }
-                else{
+                else {
                     var x = 0;
-                    while(x <= space){
-                        var wall = new Sprite("images/mur.png", space*nb_space + x, window.innerHeight-200 + line*21, 22);
-                        window["new_wall" + i] = wall;  //pour que chaque mur ait une variable avec un nom unique
+                    while (x <= space) {
+                        var wall = new Sprite("images/mur.png", space * nb_space + x, window.innerHeight - 200 + line * 21, 22);
+                        window["new_wall" + i] = wall;
                         x = x + 21;
                         i = i + 1;
                     }
@@ -149,6 +156,7 @@
             if (missile.top <= 0) {
                 missile.display = "none";
             }
+            // Collision Missile/Invader et ajout de Score
             for (i = 1; i <= 36; i++) {
                 var invader = window["invader" + i];
                 if (invader.display == "none") continue;
@@ -162,26 +170,28 @@
                     document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
-                if (score == 4100 && point == 1){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }else if (score == 3600 && point == 0){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }
-                for(i=1; i<=89; i++) {
-                    var mur = window["new_wall" + i];
-                    if (mur.display == "none") continue;
-                    if (missile.checkCollision(mur)){
-                        missile.stopAnimation();
-                        missile.display ="none";
-                        mur.display ="none";
-                    };
-                }
+            // Condition pour gagner
+            if (score == 4100 && point == 1) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            } else if (score == 3600 && point == 0) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }
+            // Collision missile/obstacle
+            for (i = 1; i <= 89; i++) {
+                var mur = window["new_wall" + i];
+                if (mur.display == "none") continue;
+                if (missile.checkCollision(mur)) {
+                    missile.stopAnimation();
+                    missile.display = "none";
+                    mur.display = "none";
+                };
+            }
         }
         // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
@@ -189,6 +199,7 @@
             if (invadership.left < -1200) {
                 invadership.startAnimation(moveshipbonusright, 50)
             }
+            //Score pour le ship bonus
             if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
                 missile.display = "none";
@@ -196,19 +207,20 @@
                 invadership.display = "none";
                 score += 500;
                 point += 1;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
-            if (score == 4100 && point == 1){
+            // Condition de win avec ship bonus
+            if (score == 4100 && point == 1) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-            }else if (score == 3600 && point == 0){
+            } else if (score == 3600 && point == 0) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-            }    
+            }
         }
 
         // Déplacement du bonus vers la droite
@@ -217,29 +229,31 @@
             if (invadership.left > document.body.clientWidth + 1200) {
                 invadership.startAnimation(moveshipbonusleft, 50);
             }
-            if (missile.checkCollision(invadership)){
+            //Score pour le ship bonus
+            if (missile.checkCollision(invadership)) {
                 missile.stopAnimation();
-                missile.display ="none";
+                missile.display = "none";
                 invadership.stopAnimation();
-                invadership.display ="none";
+                invadership.display = "none";
                 score += 500;
                 point += 1;
-                document.querySelector('.score').innerText ="Score: "+score;
+                document.querySelector('.score').innerText = "Score: " + score;
             }
-            if (score == 4100 && point == 1){
+            // Condition de win avec ship bonus
+            if (score == 4100 && point == 1) {
                 song.pause();
                 document.querySelector('.win').innerText;
                 document.querySelector('.win').style.display = "block";
                 win.play();
-                }else if (score >= 3600 && point == 0){
-                    song.pause();
-                    document.querySelector('.win').innerText;
-                    document.querySelector('.win').style.display = "block";
-                    win.play();
-                }    
+            } else if (score >= 3600 && point == 0) {
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }
         }
         invadership.startAnimation(moveshipbonusright, 50)
-// Déplacement invader vers la gauche
+        // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
@@ -251,6 +265,7 @@
                     verif = false;
                 }
             }
+            // Condition pour Lose
             if (invader.checkCollision(vaisseau)) {
                 for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
@@ -275,15 +290,17 @@
                     nbvie = 0;
                 }
             }
+            // Disparition des vies
             if (nbvie == 0) {
                 life1.display = 'none';
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
+            // Collision des obstacles/Invader
+            for (p = 1; p <= 80; p++) {
+                var walll = window["new_wall" + p];
+                if (walll.checkCollision(invader)) {
+                    walll.display = "none";
                 }
             }
         }
@@ -298,6 +315,7 @@
                     verif = false;
                 }
             }
+            // Condition de Lose
             if (invader.checkCollision(vaisseau)) {
                 for (i = 1; i <= 36; i++) {
                     window["invader" + i].stopAnimation();
@@ -321,15 +339,17 @@
                     nbvie = 0;
                 }
             }
+            // Disparition des vies
             if (nbvie == 0) {
                 life1.display = 'none';
                 life2.display = 'none';
                 life3.display = 'none';
             }
-            for (p=1;p<=80;p++){
-                var walll = window["new_wall"+p];
-                if(walll.checkCollision(invader)){
-                    walll.display="none";
+            // Collision Obstacle/Invader
+            for (p = 1; p <= 80; p++) {
+                var walll = window["new_wall" + p];
+                if (walll.checkCollision(invader)) {
+                    walll.display = "none";
                 }
             }
         }

@@ -1,8 +1,9 @@
-
+/* Ajout d'un font */
 @font-face {
     font-family: Font;
     src: url("font.TTF");
 }
+/* Navbar */
 .navbar{
     display: flex;
     background-color: rgb(19, 19, 19);
@@ -46,6 +47,7 @@ body {
 .vie img{
     height: 35px;
 }
+/* Game Over affichage */
 .gameover {
     position: fixed;
     text-align: center;
@@ -79,6 +81,7 @@ body {
     font-size: 30px;
     cursor: pointer;
     text-decoration: none;
+    vertical-align: top;
 
 }
 .restart:visited {
@@ -88,6 +91,7 @@ body {
     transition: 0.2s;
     color: #73F340;
 }
+/* Win Affichage*/
 .win {
     position: fixed;
     text-align: center;
