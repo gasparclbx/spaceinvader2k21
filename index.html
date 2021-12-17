@@ -115,6 +115,19 @@
         var missile = new Sprite("../images/missile.png", 650, 550);
         missile.height = "15";
         missile.display = "none";
+        var shoot1 = new Sprite("../images/missile.png", 650, 550);
+        shoot1.top = tourelle1.top;
+        shoot1.height = "15";
+        shoot1.display = "none";
+        var shoot2 = new Sprite("../images/missile.png", 650, 550);
+        shoot2.height = "15";
+        shoot2.display = "none";
+        var shoot3 = new Sprite("../images/missile.png", 650, 550);
+        shoot3.height = "15";
+        shoot3.display = "none";
+        var shoot4 = new Sprite("../images/missile.png", 650, 550);
+        shoot4.height = "15";
+        shoot4.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
         vaisseau.left = document.body.clientWidth / 2 - 30;
         vaisseau.top = window.innerHeight - 100; //taille du body -100";
@@ -146,7 +159,62 @@
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
                 vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
-        // Déplacement du tir du vaisseau
+        // Tir des invader
+        function moveShoot(shoot1){
+            if(shoot1.top >= vaisseau.top){
+                shoot1.display = "none";
+                shoot1.top += 2;
+            }
+            if (shoot1.display == "none") {
+                shoot1.display = "block";
+                shoot1.left = tourelle1.left + (tourelle1.ship.width - shoot1.ship.width) / 2;
+                shoot1.top = shoot1.top + 30;
+                shoot1.startAnimation(moveShoot, 100);
+            }    
+            if (shoot1.top == document.body.clientHeight)
+                shoot1.display ="none";
+                shoot1.top = shoot1.top +30;
+            for (i = 1; i <= 89; i++) {
+                var mur = window["new_wall" + i];
+                if (mur.display == "none") continue;
+                if (shoot1.checkCollision(mur)) {
+                    shoot1.stopAnimation();
+                    shoot1.display = "none";
+                    shoot1.top = tourelle1.top +30;
+                    mur.display = "none";
+                };
+            }
+            if (shoot1.checkCollision(vaisseau)) {
+                kill.play();
+                shoot1.stopAnimation();
+                shoot1.display = "none";
+                if (nbvie = 3 ){
+                    life1.display = 'block';
+                    life2.display = 'block';
+                    life3.display = 'block';
+                }else if (nbvie = 2) {
+                    life1.display = 'block';
+                    life2.display = 'block';
+                    life3.display = 'none';
+                }else if (nbvie = 1) {
+                    life1.display = 'block';
+                    life2.display = 'none';
+                    life3.display = 'none';
+                }else if (nbvie = 0) {
+                    life1.display = 'none';
+                    life2.display = 'none';
+                    life3.display = 'none';
+                }
+                
+            };
+            if (nbvie == 0) {
+                life1.display = 'none';
+                life2.display = 'none';
+                life3.display = 'none';
+            }
+        };
+        var interval = setInterval(function(){moveShoot(shoot1)},2000);
+                // Déplacement du tir du vaisseau
         function moveMissile(missile) {
             missile.top -= 10;
             if (missile.top <= 0) {
