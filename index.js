@@ -1,70 +1,98 @@
-// Création d'une fonction créant nos entités
-function Sprite(filename, left, top, height) {
-    this.ship = document.createElement("img");
-    this.ship.src = filename;
-    this.ship.style.position = "absolute";
-    document.body.appendChild(this.ship);
-// Ajout d'un argument pour la position sur la verticale
-    Object.defineProperty(this, "left", {
-        get: function() {
-            return this._left;
-        },
-        set: function(value) {
-            this._left = value;
-            this.ship.style.left = value + "px";
-        }
-    });
-// Ajout d'un argument pour la position sur l'horizontale
-    Object.defineProperty(this, "top", {
-        get: function() {
-            return this._top;
-        },
-        set: function(value) {
-            this._top = value;
-            this.ship.style.top = value + "px";
-        }
-    });
+// Création des Invader qui tirent
+var tourelle1 = new Sprite("images/tourelle.png",200, 150, 35);
+var tourelle2 = new Sprite("images/tourelle.png",500, 150, 35);
+var tourelle3 = new Sprite("images/tourelle.png",900, 150, 35);
+var tourelle4 = new Sprite("images/tourelle.png",1200, 150, 35);
 
-// Ajout d'un argument pour l'apparition
-    Object.defineProperty(this, "display", {
-        get: function() {
-            return this.ship.style.display;
-        },
-        set: function(value) {
-            this.ship.style.display = value;
-        }
-    });
-// Ajout d'un argument pour la taille
-    Object.defineProperty(this, "height", {
-        get: function() {
-            return this._height;
-        },
-        set: function(value) {
-            this._height = value;
-            this.ship.style.height = value + "px";
-        }
-    });
-    this.height = height 
-    this.left = left;
-    this.top = top;
+tourelle1.left = window.innerWidth/4.5;
+tourelle2.left = window.innerWidth/2.5;
+tourelle3.left = window.innerWidth/1.7;
+tourelle4.left = window.innerWidth/1.3;
+
+var shoot1 = new Sprite("../images/missile.png", 650, 550);
+        shoot1.top = tourelle1.top;
+        shoot1.height = "15";
+        shoot1.display = "none";
+        var shoot2 = new Sprite("../images/missile.png", 650, 550);
+        shoot2.height = "15";
+        shoot2.display = "none";
+        var shoot3 = new Sprite("../images/missile.png", 650, 550);
+        shoot3.height = "15";
+        shoot3.display = "none";
+        var shoot4 = new Sprite("../images/missile.png", 650, 550);
+        shoot4.height = "15";
+        shoot4.display = "none";
+
+// Tir des invader
+function moveShoot(shoot1){
+    if(shoot1.top >= window.innerHeight -100){
+        shoot1.display = "none";
+    }
+if (shoot1.display == "none") {
+    shoot1.display = "block";
+    shoot1.left = tourelle1.left + (tourelle1.ship.width - shoot1.ship.width) / 2;
+    shoot1.top = shoot1.top + 30;
+    shoot1.startAnimation(moveShoot, 100);
 }
-
-//mise en place d'une clock pour faire les animations
-Sprite.prototype.startAnimation = function (fct, interval){
-    if (this._clock) window.clearInterval(this._clock);
-    var _this = this;
-    this._clock = window.setInterval( function()  {
-        fct( _this);
-    }, interval );
+for (i = 1; i <= 89; i++) {
+    var mur = window["new_wall" + i];
+    if (mur.display == "none") continue;
+    if (shoot1.checkCollision(mur)) {
+        shoot1.stopAnimation();
+        shoot1.display = "none";
+        shoot1.top = tourelle1.top +30;
+        mur.display = "none";
+    };
 };
-
-Sprite.prototype.stopAnimation = function() {
-    window.clearInterval (this._clock);
+if (shoot1.checkCollision(vaisseau)) {
+    kill.play();
+    shoot1.stopAnimation();
+    shoot1.display = "none";
+    if (nbvie = 3 ){
+        life1.display = 'block';
+        life2.display = 'block';
+        life3.display = 'block';
+        nbvie -=1;
+    }else if (nbvie = 2) {
+        life1.display = 'block';
+        life2.display = 'block';
+        life3.display = 'none';
+        nbvie -= 1;
+    }else if (nbvie = 1) {
+        life1.display = 'block';
+        life2.display = 'none';
+        life3.display = 'none';
+        nbvie -= 1;
+    }else if (nbvie = 0) {
+        life1.display = 'none';
+        life2.display = 'none';
+        life3.display = 'none';
+    }
+        
 };
-// Vérification si il y a collision ou non
-Sprite.prototype.checkCollision = function(other) {
-    return  !  ((this.top + this.ship.height < other.top) ||
-                this.top > (other.top + other.ship.height) ||
-                (this.left + this.ship.width < other.left ) ||
-                this.left > (other.left + other.ship.width) );
+if (nbvie == 0) {
+    life1.display = 'none';
+    life2.display = 'none';
+    life3.display = 'none';
+}
+};
+var interval = setInterval(function(){moveShoot(shoot1)},2000);
+// depacement des tourelle vers la droite
+function movetourelleright(tourelle){
+    tourelle.left = tourelle.left + 3;
+    for (i=1; i<=4;i++){
+        if (window["tourelle"+i].left>=document.body.clientWidth - tourelle.ship.width){
+            tourelle.startAnimation(movetourelleleft, 40);
+        }
+    }
+}
+// deplacement tourelle vers la gauche
+function movetourelleleft(tourelle){
+    tourelle.left = tourelle.left - 3;
+    for (i=1; i<=4;i++){
+        if (window["tourelle"+i].left<=0){
+            tourelle.startAnimation(movetourelleright, 40);
+        }
+
+    }
 }
