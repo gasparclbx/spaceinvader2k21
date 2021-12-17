@@ -15,12 +15,15 @@
         <h1 class="text">Space Invader 1978</h1>
         <p class="score">Score: 0</p>
     </div>
+    <div class="gameover" style="display: none;"><p>Game Over !</p><a href="index.html" id="restart">restart</a></div>
+    <div class="win" style="display: none;"><p>Congrats !</p><a href="index.html" id="restart">restart</a></div>
     <script type="text/javascript">
         // Création des fichiers audio
         var song = document.createElement("audio");
         song.src = "son/music.ogg";
         song.volume = 0.4;
         song.play();
+        song.loop = true;
         var shoot = document.createElement("audio");
         shoot.src = "son/shoot.wav";
         shoot.volume = 0.5;
@@ -30,10 +33,15 @@
         var explosion = document.createElement("audio");
         explosion.src = "son/explosion.wav";
         explosion.volume = 0.6;
+        var win = document.createElement("audio");
+        win.src = "son/win.wav";
+        var defeat = document.createElement("audio");
+        defeat.src = "son/defeat.wav";
         // Création des fichiers fixes
         var life1 = new Sprite("images/heart.png", 20, 25, 40);
         var life2 = new Sprite("images/heart.png", 70, 25, 40);
         var life3 = new Sprite("images/heart.png", 120, 25, 40);
+        var point = 0;
         // Création des entitées
         var invadership = new Sprite("images/invader_3.png", -100, 90, 70);      //vaisseau bonus
 
@@ -89,14 +97,45 @@
             }
             line = line + 1;
         }
+        var nbvie = 3;
+        // Création des entités 
+        var invadership = new Sprite("../images/invader_3.png", -100, 90, 40);      //vaisseau bonus
 
+        var invader1 = new Sprite("images/invader_1.png", 400, 200, 45);
+        var invader2 = new Sprite("images/invader_1.png", 500, 200, 45);
+        var invader3 = new Sprite("images/invader_1.png", 600, 200, 45);
+        var invader4 = new Sprite("images/invader_1.png", 700, 200, 45);
+        var invader5 = new Sprite("images/invader_1.png", 800, 200, 45);
+        var invader6 = new Sprite("images/invader_1.png", 900, 200, 45);
+        var invader7 = new Sprite("images/invader_1.png", 1000, 200, 45);
+        var invader8 = new Sprite("images/invader_1.png", 1100, 200, 45);
+        var invader9 = new Sprite("images/invader_1.png", 1200, 200, 45);
 
+        var invader10 = new Sprite("images/invader_2.png", 400, 270, 35);
+        var invader11 = new Sprite("images/invader_2.png", 500, 270, 35);
+        var invader12 = new Sprite("images/invader_2.png", 600, 270, 35);
+        var invader13 = new Sprite("images/invader_2.png", 700, 270, 35);
+        var invader14 = new Sprite("images/invader_2.png", 800, 270, 35);
+        var invader15 = new Sprite("images/invader_2.png", 900, 270, 35);
+        var invader16 = new Sprite("images/invader_2.png", 1000, 270, 35);
+        var invader17 = new Sprite("images/invader_2.png", 1100, 270, 35);
+        var invader18 = new Sprite("images/invader_2.png", 1200, 270, 35);
+
+        var invader19 = new Sprite("images/invader_1.png", 400, 340, 45);
+        var invader20 = new Sprite("images/invader_1.png", 500, 340, 45);
+        var invader21 = new Sprite("images/invader_1.png", 600, 340, 45);
+        var invader22 = new Sprite("images/invader_1.png", 700, 340, 45);
+        var invader23 = new Sprite("images/invader_1.png", 800, 340, 45);
+        var invader24 = new Sprite("images/invader_1.png", 900, 340, 45);
+        var invader25 = new Sprite("images/invader_1.png", 1000, 340, 45);
+        var invader26 = new Sprite("images/invader_1.png", 1100, 340, 45);
+        var invader27 = new Sprite("images/invader_1.png", 1200, 340, 45);
         var missile = new Sprite("../images/missile.png", 650, 550);
-        missile.height = "20";
+        missile.height = "15";
         missile.display = "none";
         var vaisseau = new Sprite("vaisseau.png");
-        vaisseau.left = document.body.clientWidth/2 - 30;
-        vaisseau.top = window.innerHeight-100; //taille du body -100";
+        vaisseau.left = document.body.clientWidth / 2 - 30;
+        vaisseau.top = window.innerHeight - 100; //taille du body -100";
         vaisseau.height = "50";
         // Création du score
         var score = 0;
@@ -115,42 +154,80 @@
                 if (missile.display == "none") {
                     shoot.play();
                     missile.display = "block";
-                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width)/2;
-                    missile.startAnimation ( moveMissile, 15);
+                    missile.left = vaisseau.left + (vaisseau.ship.width - missile.ship.width) / 2;
+                    missile.startAnimation(moveMissile, 15);
                     missile.top = vaisseau.top - 30;
                 }
             }
             if (vaisseau.left < 0)          // bloque le déplacement du vaisseau pour ne pas sortir de l'écran
-            vaisseau.left = 0;
+                vaisseau.left = 0;
             if (vaisseau.left > document.body.clientWidth - vaisseau.ship.width)
-            vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
+                vaisseau.left = document.body.clientWidth - vaisseau.ship.width;
         };
-// Déplacement du tir du vaisseau
-        function moveMissile( missile ){
+        // Déplacement du tir du vaisseau
+        function moveMissile(missile) {
             missile.top -= 10;
-            if (missile.top < 0 ) {
-                missile.stopAnimation();
+            if (missile.top <= 0) {
                 missile.display = "none";
             }
-            for(i=1; i<=27; i++) {
+            for (i = 1; i <= 27; i++) {
                 var invader = window["invader" + i];
                 if (invader.display == "none") continue;
-                if (missile.checkCollision(invader)){
+                if (missile.checkCollision(invader)) {
                     kill.play();
                     missile.stopAnimation();
-                    missile.display ="none";
+                    missile.display = "none";
                     invader.stopAnimation();
-                    invader.display ="none";
+                    invader.display = "none";
                     score += 100;
-                    document.querySelector('.score').innerText ="Score: "+score;
+                    document.querySelector('.score').innerText = "Score: " + score;
                 };
             };
+                if (score == 3200 && point == 1){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }else if (score == 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
-// Déplacement du bonus vers la gauche
+        // Déplacement du bonus vers la gauche
         function moveshipbonusleft(invadership) {
             invadership.left = invadership.left - 10;
             if (invadership.left < -1200) {
-                invadership.startAnimation(moveshipbonusright, 40)
+                invadership.startAnimation(moveshipbonusright, 50)
+            }
+            if (missile.checkCollision(invadership)) {
+                missile.stopAnimation();
+                missile.display = "none";
+                invadership.stopAnimation();
+                invadership.display = "none";
+                score += 500;
+                point += 1;
+                document.querySelector('.score').innerText ="Score: "+score;
+            }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }else if (score == 2700 && point == 0){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+            }    
+        }
+
+        // Déplacement du bonus vers la droite
+        function moveshipbonusright(invadership) {
+            invadership.left = invadership.left + 10;
+            if (invadership.left > document.body.clientWidth + 1200) {
+                invadership.startAnimation(moveshipbonusleft, 50);
             }
             if (missile.checkCollision(invadership)){
                 missile.stopAnimation();
@@ -158,50 +235,108 @@
                 invadership.stopAnimation();
                 invadership.display ="none";
                 score += 500;
+                point += 1;
+                document.querySelector('.score').innerText ="Score: "+score;
             }
+            if (score == 3200 && point == 1){
+                song.pause();
+                document.querySelector('.win').innerText;
+                document.querySelector('.win').style.display = "block";
+                win.play();
+                }else if (score >= 2700 && point == 0){
+                    song.pause();
+                    document.querySelector('.win').innerText;
+                    document.querySelector('.win').style.display = "block";
+                    win.play();
+                }    
         }
-
-// Déplacement du bonus vers la droite
-        function moveshipbonusright(invadership) {
-            invadership.left = invadership.left + 10;
-            if (invadership.left > document.body.clientWidth + 1200) {
-                invadership.startAnimation(moveshipbonusleft, 40);
-            }
-        }
-        invadership.startAnimation(moveshipbonusright, 22)
-        
-
-
+        invadership.startAnimation(moveshipbonusright, 50)
 // Déplacement invader vers la gauche
         function moveinvaderleft(invader) {
             var verif = true;
             invader.left = invader.left - 3;
-            for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left <= 0 && verif) {
-                    invader.top = invader.top + 50;
-                    invader.startAnimation(moveinvaderright, 20);
+            // déplacement des invader
+            for (i = 1; i <= 27; i++) {
+                if (window["invader" + i].left <= 0 && verif) {
+                    invader.top = invader.top + 30;
+                    invader.startAnimation(moveinvaderright, 40);
                     verif = false;
                 }
             }
+            if (invader.checkCollision(vaisseau)) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
+                    invadership.stopAnimation();
+                    song.pause();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
+                }
+
+            } else if (invader.top > window.innerHeight - 100) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
+                    invadership.stopAnimation();
+                    song.pause();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
+                }
+            }
+            if (nbvie == 0) {
+                life1.display = 'none';
+                life2.display = 'none';
+                life3.display = 'none';
+            }
         }
-// Déplacement invader vers là droite
+        // Déplacement invader vers là droite
         function moveinvaderright(invader) {
             var verif = true;
             invader.left = invader.left + 3;
-            for ( i = 1; i<=27; i++){
-                if (window["invader"+i].left >= document.body.clientWidth - window["invader"+i].ship.width && verif) {
-                    invader.top = invader.top + 50;
-                    invader.startAnimation(moveinvaderleft, 20);
+            for (i = 1; i <= 27; i++) {
+                if (window["invader" + i].left >= document.body.clientWidth - invader.ship.width && verif) {
+                    invader.top = invader.top + 30;
+                    invader.startAnimation(moveinvaderleft, 40);
                     verif = false;
                 }
             }
-
+            if (invader.checkCollision(vaisseau)) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
+                    invadership.stopAnimation();
+                    song.pause();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
+                }
+            } else if (invader.top > window.innerHeight - 100) {
+                for (i = 1; i <= 27; i++) {
+                    window["invader" + i].stopAnimation();
+                    window["invader" + i].display = "none";
+                    invadership.stopAnimation();
+                    song.pause();
+                    document.querySelector('.gameover').innerText;
+                    document.querySelector('.gameover').style.display = "block";
+                    defeat.play();
+                    nbvie = 0;
+                }
+            }
+            if (nbvie == 0) {
+                life1.display = 'none';
+                life2.display = 'none';
+                life3.display = 'none';
+            }
         }
         // animation des aliens
-        for (var i = 1; i <= 27; i++) {
+        for (i = 1; i <= 27; i++) {
             window["invader" + i].startAnimation(moveinvaderright, 20);
         }
-
     </script>
 </body>
 
